@@ -1,19 +1,102 @@
 require 'open-uri'
 require 'nokogiri'
 
-Article.destroy_all
-Video.destroy_all
-Coach.destroy_all
-Choice.destroy_all
+article_fill = true
+video_fill = true
+coach_fill = true
+
+# articles
+if article_fill
+  rank = 1
+  puts "please wait, we fill the article db"
+  Article.destroy_all
+  puts "all articles are destroy, but don't panic"
+  urls = ["https://www.pole-emploi.fr/candidat/votre-projet-professionnel/evaluer-vos-competences/levaluation-des-competences-et-d.html",
+          "https://www.pole-emploi.fr/candidat/votre-projet-professionnel/definir-votre-projet-professionn/le-conseil-en-evolution-professi.html",
+          "https://www.pole-emploi.fr/candidat/en-formation/definir-vos-besoins/choisir-votre-formation.html",
+          "https://www.pole-emploi.fr/region/occitanie/candidat/formation/une-formation-pour-quoi-faire.html",
+          "https://www.pole-emploi.fr/candidat/vos-recherches/bien-vous-organiser/3-idees-pour-enrichir-votre-parc.html",
+          "https://www.pole-emploi.fr/region/auvergne-rhone-alpes/evenements/1-semaine-pour-1-emploi/employeurs-pourquoi-et-comment-p.html",
+          "https://www.pole-emploi.fr/employeur/vos-recrutements/integrer-un-nouveau-salarie/entretien-tutorat-parrainage-pri.html"
+        ]
+  base = "https://www.pole-emploi.fr"
+  urls.each do |url|
+    article = Article.new
+    html_file = open(url).read
+    html_doc = Nokogiri::HTML(html_file)
+    paragraphes = []
+    element = html_doc.search('.container')[2]
+    titre = element.search('h1').text.strip
+    puts titre
+    article.title = titre
+    element.search('p').each do |paragraphe|
+      paragraphes << paragraphe.text.strip if paragraphe.text.strip.size > 100
+    end
+    puts paragraphes
+    article.content = paragraphes.join(" ")
+    if element.search('img').attribute('src')
+      image = element.search('img').attribute('src') 
+      url_image = base + image
+      puts url_image
+      article.image = url_image
+    end
+    puts rank
+    article.step_id = rank
+    article.save!
+    rank += 1
+  end
+  puts "Now the article db is fill"
+end
+
+# video youtube:
+if video_fill
+  rank =1
+  puts "please wait, we fill the video db"
+  Video.destroy_all
+  puts "all videos are destroy, but don't panic"
+  youtube_url = ["https://www.youtube.com/embed/jpPL_5dHGSA",
+                "https://www.youtube.com/embed/PMnTR-8XVHg",
+                "https://www.youtube.com/embed/v5um5glCEzg",
+                "https://www.youtube.com/embed/hkVFPpElRjk",
+                "https://www.youtube.com/embed/WUKzm250bU8",
+                "https://www.youtube.com/embed/91EZeR5tbos?list=PLi6L3Jci2WszzB8Nmr_rKoT7UDyQAt4VX",
+                "https://www.youtube.com/embed/fzqwEcIaauk"]
+  youtube_url.each do |url|
+    video = Video.new
+    video.url = url
+    video.step_id = rank
+    puts video.url
+    video.save!
+    rank += 1
+  end
+  puts "Now the video db is fill"
+end
+
+# coaching:
+if coach_fill
+  puts "please wait, we fill the coach db"
+  Coach.destroy_all
+  puts "all coachs are destroy, but don't panic"
+  7.times do
+    coach = Coach.new
+    coach.email = Faker::Name.first_name + "@upya.fr"
+    puts coach.email
+    coach.save!
+  end
+  puts ">The coach db is fill"
+end
+
+puts "> Destroy is comming !"
+
 User.destroy_all
+Choice.destroy_all
 Question.destroy_all
 Step.destroy_all
 
-
-
-
+puts "> Destroy is finish !"
 
 puts "> Creating all the steps !"
+
 step1 = Step.create!(position: 1)
 step2 = Step.create!(position: 2)
 step3 = Step.create!(position: 3)
@@ -22,48 +105,12 @@ step5 = Step.create!(position: 5)
 step6 = Step.create!(position: 6)
 step7 = Step.create!(position: 7)
 step8 = Step.create!(position: 8) # Use this step to moving forward into the form
+
 puts "> All the steps are created !"
 
-# articles
-rank = Step.first.id
-puts "all articles are destroy, but don't panic"
-urls = ["https://www.pole-emploi.fr/candidat/votre-projet-professionnel/evaluer-vos-competences/levaluation-des-competences-et-d.html",
-        "https://www.pole-emploi.fr/candidat/votre-projet-professionnel/definir-votre-projet-professionn/le-conseil-en-evolution-professi.html",
-        "https://www.pole-emploi.fr/candidat/en-formation/definir-vos-besoins/choisir-votre-formation.html",
-        "https://www.pole-emploi.fr/region/occitanie/candidat/formation/une-formation-pour-quoi-faire.html",
-        "https://www.pole-emploi.fr/candidat/vos-recherches/bien-vous-organiser/3-idees-pour-enrichir-votre-parc.html",
-        "https://www.pole-emploi.fr/region/auvergne-rhone-alpes/evenements/1-semaine-pour-1-emploi/employeurs-pourquoi-et-comment-p.html",
-        "https://www.pole-emploi.fr/employeur/vos-recrutements/integrer-un-nouveau-salarie/entretien-tutorat-parrainage-pri.html"
-      ]
-base = "https://www.pole-emploi.fr"
-urls.each do |url|
-  article = Article.new
-  html_file = open(url).read
-  html_doc = Nokogiri::HTML(html_file)
-  paragraphes = []
-  element = html_doc.search('.container')[2]
-  titre = element.search('h1').text.strip
-  puts titre
-  article.title = titre
-  element.search('p').each do |paragraphe|
-    paragraphes << paragraphe.text.strip if paragraphe.text.strip.size > 100
-  end
-  puts paragraphes
-  article.content = paragraphes.join(" ")
-  if element.search('img').attribute('src')
-    image = element.search('img').attribute('src') 
-    url_image = base + image
-    puts url_image
-    article.image = url_image
-  end
-  puts rank
-  article.step_id = rank
-  article.save!
-  rank += 1
-end
-puts "Now the article db is fill"
-
 puts "> Creating all the questions !"
+
+
 question1 = Question.create!(title: "Êtes-vous toujours en poste à ce jour ?")
 question2 = Question.create!(title: "Avez-vous fait le point sur votre parcours professionnel ?")
 question3 = Question.create!(title: "Avez-vous défini votre projet professionnel ?")
@@ -74,9 +121,16 @@ question7 = Question.create!(title: "Avez-vous déjà finalisé votre formation 
 question8 = Question.create!(title: "Avez-vous identifié des opportunités professionnelles post-formation ?")
 question9 = Question.create!(title: "Avez-vous une promesse d'embauche ?")
 question10 = Question.create!(title: "Savez-vous comment bien vous intégrer dans votre future entreprise & poursuivre votre formation continue ?")
+
 puts "> All the questions are created !"
 
 puts "> Creating all the choices !"
+
+# t.boolean "value"
+# t.bigint "question_id", null: false
+# t.integer "next_question_id"
+# t.bigint "step_id", null: false
+
 # Choices of the question 1
 choice1 = Choice.create!(value: true, question_id: question1.id, next_question_id: question2.id, step_id: step8.id)
 choice2 = Choice.create!(value: false, question_id: question1.id, next_question_id: question2.id, step_id: step8.id)
@@ -116,9 +170,11 @@ choice22 = Choice.create!(value: false, question_id: question9.id, next_question
 # Choices of the question 10
 choice23 = Choice.create!(value: true, question_id: question10.id, next_question_id: question1.id, step_id: step8.id)
 choice24 = Choice.create!(value: false, question_id: question10.id, next_question_id: question1.id, step_id: step7.id)
+
 puts "> All the choices are created !"
 
 puts "> Creating all the users !"
+
 user1 = User.create!(email: "bob@user.com", password: "azerty", name: "Bob", current_question_id: question1.id, step_id: step1.id)
 user2 = User.create!(email: "john@user.com", password: "azerty", name: "John", current_question_id: question1.id, step_id: step1.id)
 user3 = User.create!(email: "manu@user.com", password: "azerty", name: "Manu", current_question_id: question1.id, step_id: step1.id)
@@ -129,37 +185,5 @@ user7 = User.create!(email: "paul@user.com", password: "azerty", name: "Paul", c
 user8 = User.create!(email: "george@user.com", password: "azerty", name: "George", current_question_id: question1.id, step_id: step1.id)
 user9 = User.create!(email: "pablo@user.com", password: "azerty", name: "Pablo", current_question_id: question1.id, step_id: step1.id)
 user10 = User.create!(email: "gustavo@user.com", password: "azerty", name: "Gustavo", current_question_id: question1.id, step_id: step1.id)
+
 puts "> All the users are created !"
-# =========================================================================================================
-
-# video youtube:
-rank = Step.first.id
-puts "all videos are destroy, but don't panic"
-youtube_url = ["https://www.youtube.com/embed/jpPL_5dHGSA",
-              "https://www.youtube.com/embed/PMnTR-8XVHg",
-              "https://www.youtube.com/embed/v5um5glCEzg",
-              "https://www.youtube.com/embed/hkVFPpElRjk",
-              "https://www.youtube.com/embed/WUKzm250bU8",
-              "https://www.youtube.com/embed/91EZeR5tbos?list=PLi6L3Jci2WszzB8Nmr_rKoT7UDyQAt4VX",
-              "https://www.youtube.com/embed/fzqwEcIaauk"]
-youtube_url.each do |url|
-  video = Video.new
-  video.url = url
-  video.step_id = rank
-  puts video.url
-  video.save!
-  rank += 1
-end
-puts "Now the video db is fill"
-
-
-# coaching:
-puts "please wait, we fill the coach db"
-
-7.times do
-  coach = Coach.new
-  coach.email = Faker::Name.first_name.downcase + "@upya.fr"
-  puts coach.email
-  coach.save!
-end
-puts ">The coach db is fill"
