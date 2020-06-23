@@ -96,5 +96,5 @@ if coach_fill
     puts coach.email
     coach.save!
   end
-  puts "Now the coach db is fill"
+  puts ">The coach db is fill"
 end
