@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'answers/create'
   get 'answer/create'
   get 'questions/show'
+  get 'steps/index'
   devise_for :users
   root to: 'pages#home'
   resources :questions, only: :show

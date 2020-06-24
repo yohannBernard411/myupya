@@ -9,10 +9,7 @@ User.destroy_all
 Question.destroy_all
 Step.destroy_all
 
-
-
-
-
+# steps
 puts "> Creating all the steps !"
 step1 = Step.create!(position: 1)
 step2 = Step.create!(position: 2)
@@ -32,7 +29,7 @@ urls = ["https://www.pole-emploi.fr/candidat/votre-projet-professionnel/evaluer-
         "https://www.pole-emploi.fr/candidat/en-formation/definir-vos-besoins/choisir-votre-formation.html",
         "https://www.pole-emploi.fr/region/occitanie/candidat/formation/une-formation-pour-quoi-faire.html",
         "https://www.pole-emploi.fr/candidat/vos-recherches/bien-vous-organiser/3-idees-pour-enrichir-votre-parc.html",
-        "https://www.pole-emploi.fr/region/auvergne-rhone-alpes/evenements/1-semaine-pour-1-emploi/employeurs-pourquoi-et-comment-p.html",
+        "https://www.pole-emploi.fr/candidat/vos-recherches/bien-vous-organiser/decouvrez-vos-competences-transv.html",
         "https://www.pole-emploi.fr/employeur/vos-recrutements/integrer-un-nouveau-salarie/entretien-tutorat-parrainage-pri.html"
       ]
 base = "https://www.pole-emploi.fr"
@@ -48,11 +45,16 @@ urls.each do |url|
   element.search('p').each do |paragraphe|
     paragraphes << paragraphe.text.strip if paragraphe.text.strip.size > 100
   end
+  paragraphes.shift
   puts paragraphes
   article.content = paragraphes.join(" ")
   if element.search('img').attribute('src')
-    image = element.search('img').attribute('src') 
-    url_image = base + image
+    image = element.search('img').attribute('src').text.strip
+    if image[0] == "/"
+      url_image = base + image
+    else
+      url_image = image
+    end
     puts url_image
     article.image = url_image
   end
@@ -63,6 +65,7 @@ urls.each do |url|
 end
 puts "Now the article db is fill"
 
+# questions
 puts "> Creating all the questions !"
 question1 = Question.create!(title: "Êtes-vous toujours en poste à ce jour ?")
 question2 = Question.create!(title: "Avez-vous fait le point sur votre parcours professionnel ?")
@@ -118,6 +121,7 @@ choice23 = Choice.create!(value: true, question_id: question10.id, next_question
 choice24 = Choice.create!(value: false, question_id: question10.id, next_question_id: question1.id, step_id: step7.id)
 puts "> All the choices are created !"
 
+#users
 puts "> Creating all the users !"
 user1 = User.create!(email: "bob@user.com", password: "azerty", name: "Bob", current_question_id: question1.id, step_id: step1.id)
 user2 = User.create!(email: "john@user.com", password: "azerty", name: "John", current_question_id: question1.id, step_id: step1.id)
@@ -129,36 +133,55 @@ user7 = User.create!(email: "paul@user.com", password: "azerty", name: "Paul", c
 user8 = User.create!(email: "george@user.com", password: "azerty", name: "George", current_question_id: question1.id, step_id: step1.id)
 user9 = User.create!(email: "pablo@user.com", password: "azerty", name: "Pablo", current_question_id: question1.id, step_id: step1.id)
 user10 = User.create!(email: "gustavo@user.com", password: "azerty", name: "Gustavo", current_question_id: question1.id, step_id: step1.id)
+me = User.create!(email: "user@test.fr", password: "azerty", name: "Yohann", current_question_id: Question.first.id, step_id: Step.first.id)
 puts "> All the users are created !"
-# =========================================================================================================
 
 # video youtube:
 rank = Step.first.id
 puts "all videos are destroy, but don't panic"
-youtube_url = ["https://www.youtube.com/embed/jpPL_5dHGSA",
-              "https://www.youtube.com/embed/PMnTR-8XVHg",
-              "https://www.youtube.com/embed/v5um5glCEzg",
-              "https://www.youtube.com/embed/hkVFPpElRjk",
-              "https://www.youtube.com/embed/WUKzm250bU8",
-              "https://www.youtube.com/embed/91EZeR5tbos?list=PLi6L3Jci2WszzB8Nmr_rKoT7UDyQAt4VX",
-              "https://www.youtube.com/embed/fzqwEcIaauk"]
-youtube_url.each do |url|
+youtube_url = ["https://www.youtube.com/embed/fzqwEcIaauk",
+               "https://www.youtube.com/embed/91EZeR5tbos?list=PLi6L3Jci2WszzB8Nmr_rKoT7UDyQAt4VX",
+               "https://www.youtube.com/embed/WUKzm250bU8",
+               "https://www.youtube.com/embed/hkVFPpElRjk",
+               "https://www.youtube.com/embed/v5um5glCEzg",
+               "https://www.youtube.com/embed/PMnTR-8XVHg",
+               "https://www.youtube.com/embed/jpPL_5dHGSA"
+              ]
+miniatures = ["https://zupimages.net/up/20/26/e8ub.png",
+              "https://zupimages.net/up/20/26/2yy2.png",
+              "https://zupimages.net/up/20/26/dg41.png",
+              "https://zupimages.net/up/20/26/t4n3.png",
+              "https://zupimages.net/up/20/26/4vif.png",
+              "https://zupimages.net/up/20/26/rx3y.png",
+              "https://zupimages.net/up/20/26/d9ds.png"
+             ]
+youtube_url.each_with_index do |url, index|
   video = Video.new
   video.url = url
   video.step_id = rank
   puts video.url
+  video.picture = miniatures[index]
   video.save!
   rank += 1
 end
 puts "Now the video db is fill"
 
-
 # coaching:
 puts "please wait, we fill the coach db"
 
-7.times do
+coaches_url = ["https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60",
+               "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60",
+               "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60",
+               "https://images.unsplash.com/photo-1530268729831-4b0b9e170218?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60",
+               "https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60",
+               "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60",
+               "https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60"
+              ]
+
+coaches_url.each do |photo|
   coach = Coach.new
   coach.email = Faker::Name.first_name.downcase + "@upya.fr"
+  coach.photo_url = photo
   puts coach.email
   coach.save!
 end
