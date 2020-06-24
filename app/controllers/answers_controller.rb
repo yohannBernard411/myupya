@@ -10,7 +10,7 @@ class AnswersController < ApplicationController
       user: current_user,
       choice: choice
     )
-    if answer.save
+    if answer.save && choice.value == true
       current_user.update(
       current_question_id: choice.next_question_id,
       step_id: choice.step_id

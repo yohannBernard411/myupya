@@ -10,8 +10,5 @@ class QuestionsController < ApplicationController
     render 'show'
   end
 
-  def method_name
-
-  end
 
 end
