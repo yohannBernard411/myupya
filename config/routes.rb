@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'articles/show'
+  get 'videos/show'
+  get 'coachs/show'
+  get 'answers/create'
+  get 'answer/create'
+  get 'questions/show'
+  get 'steps/index'
   devise_for :users
   root to: 'pages#home'
   resources :questions, only: :show
