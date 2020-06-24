@@ -105,7 +105,7 @@ function test(){
       video.classList.add("d-block");
       coach.classList.remove("d-none");
       coach.classList.add("d-block");
-
+    },
 
     function opning(open){
       open.forEach(function(rank){
@@ -132,16 +132,10 @@ function test(){
         video.classList.add("d-block");
         coach.classList.remove("d-none");
         coach.classList.add("d-block");
-        
-
-
       });
-
-    }
+    });
     opning(open);
-  }
-
-
+  };
+};
 }
-export {test};
-
+export { test }
