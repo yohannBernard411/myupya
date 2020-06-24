@@ -6,6 +6,6 @@
 
 <%= simple_form_for @question, url: (answers_path), method: :post do |f|%>
   <%= f.collection_radio_buttons :choices, [[@question.choices[0].id, 'OUI'] ,[@question.choices[1].id, 'NON']], :first, :last %>
-  <%= f.button :submit, value: "Valider", class: "btn btn-primary", id: 'button-question-form', disabled: true %>
+  <%= f.submit value: 'Valider', class: 'btn btn-primary', id: 'button-question-form', disabled: true , data: { "disable-with": "update question"}%>
 <% end %>
 

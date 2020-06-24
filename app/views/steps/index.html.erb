@@ -27,7 +27,7 @@
         <div class="content">
           <h2>Step <%= 8 - (step + 1) %></h2>
           <% if 7 - step == @current_step %>
-            <%= link_to "Valider ce step", "#", class: "btn btn-success"%>
+            <%= link_to "Valider ce step",  steps_up_path, class: "btn btn-success"%>
           <% end %>
           <div id="openbutton<%= 7 - step %>" class="">
             <% if 7 - step < @current_step %>
