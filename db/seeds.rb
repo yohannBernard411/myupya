@@ -9,10 +9,6 @@ User.destroy_all
 Question.destroy_all
 Step.destroy_all
 
-
-
-
-
 puts "> Creating all the steps !"
 step1 = Step.create!(position: 1)
 step2 = Step.create!(position: 2)
@@ -51,7 +47,7 @@ urls.each do |url|
   puts paragraphes
   article.content = paragraphes.join(" ")
   if element.search('img').attribute('src')
-    image = element.search('img').attribute('src') 
+    image = element.search('img').attribute('src')
     url_image = base + image
     puts url_image
     article.image = url_image
