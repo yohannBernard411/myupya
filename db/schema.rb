@@ -49,7 +49,6 @@ ActiveRecord::Schema.define(version: 2020_06_24_012627) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "photo_url"
   end
 
   create_table "consultations", force: :cascade do |t|
