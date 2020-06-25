@@ -7,4 +7,10 @@
 <input type="date" class="datepicker" name="name" required
        minlength="4" maxlength="8" size="10">
 
-<%= link_to "Payer la scéance", "#", class: "btn btn-primary" %>
+<p>Prix: <%= humanized_money_with_symbol(@coach.price) %></p>
+
+
+<%= form_tag orders_path do %>
+  <%= hidden_field_tag 'coach_id', @coach.id %>
+    <%= submit_tag 'Valider', class: 'btn btn-primary' %>
+<% end %>
