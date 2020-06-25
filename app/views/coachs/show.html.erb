@@ -1,7 +1,10 @@
 <h1><%= @coach.email %></h1>
 
-<%= image_tag @coach.photo_url %>
+<%= image_tag @coach.photo_url, class: "yourcoach" %>
 
-<p>Choisissez votre date</p>
+<p>Choisissez votre date:</p>
 
+<input type="date" class="datepicker" name="name" required
+       minlength="4" maxlength="8" size="10">
 
+<%= link_to "Payer la scéance", "#", class: "btn btn-primary" %>

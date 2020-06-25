@@ -5,46 +5,153 @@
 
   <div>
     <p>progress bar </p>
+    <%= @current_step %>
   </div>
 </div><br>
+
+<p id="data-cs" data-cs=<%= @current_step %> >Paragraphe pour test</p>
 
 <div class="subbody">
   <div class="timeline">
 
 <% for step in (6).downto(0) %>
 
-  <div class="hidden_part">
+<%# affichage open %>
 
-    <div class="container right">
-      <div class="content">
-        <h2>Step <%= 8 - (step + 1) %></h2>
+    <div id=<%= 7 - step %>>
+      <div id="offsettop<%= 7 - step %>" class="containerblank righter">
+        <div class="contentnone">
+        </div>
+      </div>
+      <div class="container right" id = <%= @current_step - 2 %>>
+        <div class="content">
+          <h2>Step <%= 8 - (step + 1) %></h2>
+          <% if 7 - step == @current_step %>
+            <%= link_to "Valider ce step", "#", class: "btn btn-success"%>
+          <% end %>
+          <div id="openbutton<%= 7 - step %>" class="">
+            <% if 7 - step < @current_step %>
+              <button id="clickopen<%= 7 - step %>" class="btn btn-primary" value=<%= 7 - step %> >Ouvrir</button>
+            <% end %>
+          </div>
+          <div id="closebutton<%= 7 - step %>" class="">
+            <% if 7 - step < @current_step %>
+              <button id="clickclose<%= 7 - step %>" class="btn btn-warning" value=<%= 7 - step %> >Fermer</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div id="article<%= 7 - step %>" class="">
+        <div class="container left">
+          <div class="content">
+            <h2>Article</h2>
+            <strong><%= @articles[step].title[0..60] + "..." %></strong><br>
+            <%= image_tag(@articles[step].image, class: "vignette") %>
+            <p class="para"><%= @articles[step].content[0..200] + "..." %></p><br>
+            <%= link_to "Voir", article_path(@articles[step].id), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+      <div id="video<%= 7 - step %>" class="container right">
+        <div class="content">
+          <h2>Video</h2>
+          <%= image_tag @videos[step].picture, class: "small_vignette" %>
+          <%= link_to "Voir", video_path(@videos[step].id), class: "btn btn-primary" %>
+        </div>
+      </div>
+      <div id="coach<%= 7 - step %>" class="container left">
+        <div class="content">
+          <h2>Coach</h2>
+          <strong><%= @coachs[step].email %></strong><br>
+          <%= image_tag(@coachs[step].photo_url, class: "small_vignette") %>
+          <%= link_to "Prendre rendez-vous", coach_path(@coachs[step].id), class: "btn btn-primary" %>
+        </div>
+      </div>
+      <div id="offsetbottom<%= 7 - step %>" class="containerblank righter">
+        <div class="contentnone">
+        </div>
       </div>
     </div>
-    <div class="container left">
-      <div class="content">
-        <h2>Article</h2>
-        <strong><%= @articles[step].title[0..60] + "..." %></strong><br>
-        <%= image_tag(@articles[step].image, class: "vignette") %>
-        <p class="para"><%= @articles[step].content[0..200] + "..." %></p><br>
-        <%= link_to "Voir", article_path(@articles[step].id), class: "btn btn-primary" %>
-      </div>
-    </div>
-    <div class="container right">
-      <div class="content">
-        <h2>Video</h2>
-        <%= image_tag @videos[step].picture, class: "small_vignette" %>
-        <%= link_to "Voir", video_path(@videos[step].id), class: "btn btn-primary" %>
-      </div>
-    </div>
-    <div class="container left">
-      <div class="content">
-        <h2>Coach</h2>
-        <strong><%= @coachs[step].email %></strong><br>
-        <%= image_tag(@coachs[step].photo_url, class: "small_vignette") %>
-        <%= link_to "Prendre rendez-vous", coach_path(@coachs[step].id), class: "btn btn-primary" %>
-      </div>
-    </div>
-  </div>
+
+
 <% end %>
   </div>
 </div>
+
+
+
+<!--
+<%# affichage reduct %>
+  <% if 7 - step != @current_step %>
+    <div id=<%= 7 - step %>>
+      <div id="offsettop" class="containerblank righter d-none">
+        <div class="contentnone">
+        </div>
+      </div>
+      <div class="container right" id = <%= @current_step - 2 %>>
+        <div class="content">
+          <h2>Step <%= 8 - (step + 1) %></h2>
+          <% if 7 - step == @current_step %>
+            <%= link_to "Valider ce step", "#", class: "btn btn-success"%>
+          <% end %>
+          <div id="openbutton" class="d-block">
+            <% if 7 - step < @current_step %>
+              <button class="btn btn-primary">Ouvrir</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div id="article" class="d-none">
+        <div class="container left">
+          <div class="content">
+            <h2>Article</h2>
+            <strong><%= @articles[step].title[0..60] + "..." %></strong><br>
+            <%= image_tag(@articles[step].image, class: "vignette") %>
+            <p class="para"><%= @articles[step].content[0..200] + "..." %></p><br>
+            <%= link_to "Voir", article_path(@articles[step].id), class: "btn btn-primary" %>
+          </div>
+        </div>
+        <div class="container right">
+          <div class="content">
+            <h2>Video</h2>
+            <%= image_tag @videos[step].picture, class: "small_vignette" %>
+            <%= link_to "Voir", video_path(@videos[step].id), class: "btn btn-primary" %>
+          </div>
+        </div>
+        <div class="container left">
+          <div class="content">
+            <h2>Coach</h2>
+            <strong><%= @coachs[step].email %></strong><br>
+            <%= image_tag(@coachs[step].photo_url, class: "small_vignette") %>
+            <%= link_to "Prendre rendez-vous", coach_path(@coachs[step].id), class: "btn btn-primary" %>
+          </div>
+        </div>
+        <div id="offsetbottom" class="containerblank righter d-none">
+          <div class="contentnone">
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+-->
+
+
+
+<!--
+  <% if 7 - step != @current_step %>
+    <div class="container right">
+      <div class="content">
+        <h2>Step <%= 8 - (step + 1) %></h2>
+        <div>
+          <%= image_tag(@articles[step].image, class: "smallpicture") %>
+          <%= image_tag @videos[step].picture, class: "smallpicture" %>
+          <%= image_tag(@coachs[step].photo_url, class: "smallpicture") %>
+          <% if 7 - step < @current_step %>
+            <button class="btn btn-primary">Ouvrir</button>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  -->
