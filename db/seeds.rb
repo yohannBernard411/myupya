@@ -4,6 +4,7 @@ require 'nokogiri'
 Article.destroy_all
 Video.destroy_all
 Coach.destroy_all
+Answer.destroy_all
 Choice.destroy_all
 User.destroy_all
 Question.destroy_all
@@ -86,15 +87,15 @@ choice2 = Choice.create!(value: false, question_id: question1.id, next_question_
 
 # Choices of the question 2
 choice7 = Choice.create!(value: true, question_id: question2.id, next_question_id: question3.id, step_id: step8.id)
-choice8 = Choice.create!(value: false, question_id: question2.id, next_question_id: question1.id, step_id: step1.id)
+choice8 = Choice.create!(value: false, question_id: question2.id, next_question_id: nil, step_id: step1.id)
 
 # Choices of the question 3
 choice9 = Choice.create!(value: true, question_id: question3.id, next_question_id: question4.id, step_id: step8.id)
-choice10 = Choice.create!(value: false, question_id: question3.id, next_question_id: question1.id, step_id: step2.id)
+choice10 = Choice.create!(value: false, question_id: question3.id, next_question_id: nil, step_id: step2.id)
 
 # Choices of the question 4
 choice11 = Choice.create!(value: true, question_id: question4.id, next_question_id: question5.id, step_id: step8.id)
-choice12 = Choice.create!(value: false, question_id: question4.id, next_question_id: question1.id, step_id: step3.id)
+choice12 = Choice.create!(value: false, question_id: question4.id, next_question_id: nil, step_id: step3.id)
 
 # Choices of the question 5
 choice13 = Choice.create!(value: true, question_id: question5.id, next_question_id: question6.id, step_id: step8.id)
@@ -102,23 +103,23 @@ choice14 = Choice.create!(value: false, question_id: question5.id, next_question
 
 # Choices of the question 6
 choice15 = Choice.create!(value: true, question_id: question6.id, next_question_id: question7.id, step_id: step8.id)
-choice16 = Choice.create!(value: false, question_id: question6.id, next_question_id: question1.id, step_id: step5.id)
+choice16 = Choice.create!(value: false, question_id: question6.id, next_question_id: nil, step_id: step5.id)
 
 # Choices of the question 7
 choice17 = Choice.create!(value: true, question_id: question7.id, next_question_id: question8.id, step_id: step8.id)
-choice18 = Choice.create!(value: false, question_id: question7.id, next_question_id: question1.id, step_id: step4.id)
+choice18 = Choice.create!(value: false, question_id: question7.id, next_question_id: nil, step_id: step4.id)
 
 # Choices of the question 8
 choice19 = Choice.create!(value: true, question_id: question8.id, next_question_id: question9.id, step_id: step8.id)
-choice20 = Choice.create!(value: false, question_id: question8.id, next_question_id: question1.id, step_id: step6.id)
+choice20 = Choice.create!(value: false, question_id: question8.id, next_question_id: nil, step_id: step6.id)
 
 # Choices of the question 9
 choice21 = Choice.create!(value: true, question_id: question9.id, next_question_id: question10.id, step_id: step8.id)
-choice22 = Choice.create!(value: false, question_id: question9.id, next_question_id: question1.id, step_id: step6.id)
+choice22 = Choice.create!(value: false, question_id: question9.id, next_question_id: nil, step_id: step6.id)
 
 # Choices of the question 10
-choice23 = Choice.create!(value: true, question_id: question10.id, next_question_id: question1.id, step_id: step8.id)
-choice24 = Choice.create!(value: false, question_id: question10.id, next_question_id: question1.id, step_id: step7.id)
+choice23 = Choice.create!(value: true, question_id: question10.id, next_question_id: nil, step_id: step8.id)
+choice24 = Choice.create!(value: false, question_id: question10.id, next_question_id: nil, step_id: step7.id)
 puts "> All the choices are created !"
 
 #users
