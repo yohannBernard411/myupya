@@ -9,17 +9,24 @@ class AnswersController < ApplicationController
       choice: choice
     )
 
-    current_user.update(
-      current_question_id: choice.next_question_id,
-      step_id: choice.step_id
-    )
+    if choice.next_question_id
+      current_user.update(
+        current_question_id: choice.next_question_id
+      )
+    end
+
+    if choice.step_id
+      current_user.update(
+        step_id: choice.step_id
+      )
+    end
 
     answer.save
 
     if choice.question_id == Question.last.id && choice.value == true
       redirect_to pages_show_path
     elsif choice.next_question_id.nil?
-      redirect_to steps_path
+      redirect_to steps_path(anchor: Step.find(current_user.step_id).position)
     else
       redirect_to question_path(choice.next_question_id)
     end

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # get 'questions/show'
   get 'steps/index'
   get 'pages/show'
+  get 'steps/up'
+
   devise_for :users
   root to: 'pages#home'
   resources :questions, only: :show

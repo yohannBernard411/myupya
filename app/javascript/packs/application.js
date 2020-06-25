@@ -31,9 +31,11 @@ import { test } from '../steps/index';
 
 // Internal imports, e.g:
 import { disabled } from '../components/_disabled_button';
+
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
+  disabled()
   // Call your functions here, e.g:
   // initSelect2();
   test();
