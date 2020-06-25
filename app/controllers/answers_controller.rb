@@ -9,10 +9,17 @@ class AnswersController < ApplicationController
       choice: choice
     )
 
-    current_user.update(
-      current_question_id: choice.next_question_id,
-      step_id: choice.step_id
-    )
+    if choice.next_question_id
+      current_user.update(
+        current_question_id: choice.next_question_id
+      )
+    end
+
+    if choice.step_id
+      current_user.update(
+        step_id: choice.step_id
+      )
+    end
 
     answer.save
 
