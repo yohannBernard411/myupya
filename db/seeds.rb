@@ -26,11 +26,11 @@ puts "> All the steps are created !"
 rank = Step.first.id
 puts "all articles are destroy, but don't panic"
 urls = ["https://www.pole-emploi.fr/candidat/votre-projet-professionnel/evaluer-vos-competences/levaluation-des-competences-et-d.html",
-        "https://www.pole-emploi.fr/candidat/votre-projet-professionnel/definir-votre-projet-professionn/le-conseil-en-evolution-professi.html",
-        "https://www.pole-emploi.fr/candidat/en-formation/definir-vos-besoins/choisir-votre-formation.html",
-        "https://www.pole-emploi.fr/region/occitanie/candidat/formation/une-formation-pour-quoi-faire.html",
-        "https://www.pole-emploi.fr/candidat/vos-recherches/bien-vous-organiser/3-idees-pour-enrichir-votre-parc.html",
         "https://www.pole-emploi.fr/candidat/vos-recherches/bien-vous-organiser/decouvrez-vos-competences-transv.html",
+        "https://www.pole-emploi.fr/candidat/votre-projet-professionnel/definir-votre-projet-professionn/le-conseil-en-evolution-professi.html",
+        "https://www.pole-emploi.fr/region/occitanie/candidat/formation/une-formation-pour-quoi-faire.html",
+        "https://www.pole-emploi.fr/candidat/en-formation/definir-vos-besoins/choisir-votre-formation.html",
+        "https://www.pole-emploi.fr/candidat/vos-recherches/bien-vous-organiser/3-idees-pour-enrichir-votre-parc.html",
         "https://www.pole-emploi.fr/employeur/vos-recrutements/integrer-un-nouveau-salarie/entretien-tutorat-parrainage-pri.html"
       ]
 base = "https://www.pole-emploi.fr"
@@ -63,6 +63,7 @@ urls.each do |url|
   article.step_id = rank
   article.save!
   rank += 1
+  sleep 2
 end
 puts "Now the article db is fill"
 
@@ -140,21 +141,21 @@ puts "> All the users are created !"
 # video youtube:
 rank = Step.first.id
 puts "all videos are destroy, but don't panic"
-youtube_url = ["https://www.youtube.com/embed/fzqwEcIaauk",
-               "https://www.youtube.com/embed/91EZeR5tbos?list=PLi6L3Jci2WszzB8Nmr_rKoT7UDyQAt4VX",
-               "https://www.youtube.com/embed/WUKzm250bU8",
-               "https://www.youtube.com/embed/hkVFPpElRjk",
-               "https://www.youtube.com/embed/v5um5glCEzg",
+youtube_url = ["https://www.youtube.com/embed/jpPL_5dHGSA",
                "https://www.youtube.com/embed/PMnTR-8XVHg",
-               "https://www.youtube.com/embed/jpPL_5dHGSA"
+               "https://www.youtube.com/embed/v5um5glCEzg",
+               "https://www.youtube.com/embed/hkVFPpElRjk",
+               "https://www.youtube.com/embed/WUKzm250bU8",
+               "https://www.youtube.com/embed/91EZeR5tbos?list=PLi6L3Jci2WszzB8Nmr_rKoT7UDyQAt4VX",
+               "https://www.youtube.com/embed/fzqwEcIaauk" 
               ]
-miniatures = ["https://zupimages.net/up/20/26/e8ub.png",
-              "https://zupimages.net/up/20/26/2yy2.png",
-              "https://zupimages.net/up/20/26/dg41.png",
-              "https://zupimages.net/up/20/26/t4n3.png",
-              "https://zupimages.net/up/20/26/4vif.png",
+miniatures = ["https://zupimages.net/up/20/26/d9ds.png",
               "https://zupimages.net/up/20/26/rx3y.png",
-              "https://zupimages.net/up/20/26/d9ds.png"
+              "https://zupimages.net/up/20/26/4vif.png",
+              "https://zupimages.net/up/20/26/t4n3.png",
+              "https://zupimages.net/up/20/26/dg41.png",
+              "https://zupimages.net/up/20/26/2yy2.png",
+              "https://zupimages.net/up/20/26/e8ub.png" 
              ]
 youtube_url.each_with_index do |url, index|
   video = Video.new
@@ -183,6 +184,7 @@ coaches_url.each do |photo|
   coach = Coach.new
   coach.email = Faker::Name.first_name.downcase + "@upya.fr"
   coach.photo_url = photo
+  coach.price_cents = Faker::Number.between(from: 5000, to: 30000)
   puts coach.email
   coach.save!
 end

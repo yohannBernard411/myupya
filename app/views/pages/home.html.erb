@@ -4,7 +4,7 @@
             <div class="col-6">
                 <h1 class="pb-4 ">Votre <span class="bold">Renouveau</span> Professionnel Commence Sur <span class="main-color bold">Upya</span>.</h1>
                 <p class="text-muted pb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit rem ut quae officiis maiores corrupti quis distinctio veritatis quidem.</p>
-                <%= link_to "Faire mon bilan", questions_show_path(current_user.current_question_id), class: 'button' %>
+                <%= link_to "Faire mon bilan", question_path(current_user.current_question_id), class: 'button' %>
             </div>
             <div class="col-6">
                 <%= image_tag "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593091182/3534909_ezyjda.png", width: "150%" %>
