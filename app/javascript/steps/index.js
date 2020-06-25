@@ -1,6 +1,13 @@
 function test(){
   if (document.getElementById('data-cs')){
 
+  all.forEach(function(rank){
+    const button = document.getElementById("clickopen"+rank);
+    if (button){
+      button.addEventListener("click", addopenclass, false);
+    }
+  });
+
     const currentStep = document.getElementById('data-cs');
     const currentStepId = currentStep.dataset.cs;
     const open = [currentStepId];
@@ -12,6 +19,15 @@ function test(){
         button.addEventListener("click", addopenclass, false);
       }  
     });
+
+
+  all.forEach(function(rank){
+    const button = document.getElementById("clickclose"+rank);
+    console.log(button);
+    if (button){
+      button.addEventListener("click", addcloseclass, false);
+    }
+  });
 
     function addopenclass(){
       const here = parseInt(this.value, 10);
@@ -64,6 +80,33 @@ function test(){
 
     closing(all);
 
+  function opning(open){
+    open.forEach(function(rank){
+      const offsettop = document.getElementById("offsettop"+rank);
+      const openbutton = document.getElementById("openbutton"+rank);
+      const closebutton = document.getElementById("closebutton"+rank);
+      const article = document.getElementById("article"+rank);
+      const video = document.getElementById("video"+rank);
+      const coach = document.getElementById("coach"+rank);
+      const offsetbottom = document.getElementById("offsetbottom"+rank);
+      if (rank === currentStepId){
+        offsettop.classList.remove("d-none");
+        offsettop.classList.add("d-block");
+        offsetbottom.classList.remove("d-none")
+        offsetbottom.classList.add("d-block");
+      }
+      openbutton.classList.remove("d-block");
+      openbutton.classList.add("d-none");
+      closebutton.classList.remove("d-none");
+      closebutton.classList.add("d-block");
+      article.classList.remove("d-none");
+      article.classList.add("d-block");
+      video.classList.remove("d-none");
+      video.classList.add("d-block");
+      coach.classList.remove("d-none");
+      coach.classList.add("d-block");
+
+
     function opning(open){
       open.forEach(function(rank){
         const offsettop = document.getElementById("offsettop"+rank);
@@ -91,11 +134,14 @@ function test(){
         coach.classList.add("d-block");
         
 
+
       });
 
     }
     opning(open);
   }
 
+
 }
 export {test};
+

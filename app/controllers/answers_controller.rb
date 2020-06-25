@@ -24,7 +24,7 @@ class AnswersController < ApplicationController
     answer.save
 
     if choice.question_id == Question.last.id && choice.value == true
-      # ajouter une modal
+      redirect_to pages_show_path
     elsif choice.next_question_id.nil?
       redirect_to steps_path(anchor: Step.find(current_user.step_id).position)
     else
