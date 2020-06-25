@@ -23,7 +23,7 @@
         <div class="contentnone">
         </div>
       </div>
-      <div class="container right" id = <%= @current_step - 2 %>>
+      <div class="containermine right" id = <%= @current_step - 2 %>>
         <div class="content">
           <h2>Step <%= 8 - (step + 1) %></h2>
           <% if 7 - step == @current_step %>
@@ -42,7 +42,7 @@
         </div>
       </div>
       <div id="article<%= 7 - step %>" class="">
-        <div class="container left">
+        <div class="containermine left">
           <div class="content">
             <h2>Article</h2>
             <strong><%= @articles[step].title[0..60] + "..." %></strong><br>
@@ -52,14 +52,14 @@
           </div>
         </div>
       </div>
-      <div id="video<%= 7 - step %>" class="container right">
+      <div id="video<%= 7 - step %>" class="containermine right">
         <div class="content">
           <h2>Video</h2>
           <%= image_tag @videos[step].picture, class: "small_vignette" %>
           <%= link_to "Voir", video_path(@videos[step].id), class: "btn btn-primary" %>
         </div>
       </div>
-      <div id="coach<%= 7 - step %>" class="container left">
+      <div id="coach<%= 7 - step %>" class="containermine left">
         <div class="content">
           <h2>Coach</h2>
           <strong><%= @coachs[step].email %></strong><br>

@@ -1,9 +1,10 @@
-
+<div class="container">
   <div class="row py-4">
     <div class="col-md-3"><%= image_tag @order.coach.photo_url, width: '100%' %></div>
     <div class="col">
       <h1>Récapitulatif de paiement</h1>
-      <p>Achat de <strong><%= @order.coach.email %></strong> pour <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
+      <p>Achat d'une scéance avec <strong><%= @order.coach.email %></strong></p>
+      <p> pour <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
       <button id="pay" class="btn btn-primary">Payer</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
@@ -17,9 +18,4 @@
       </script>
     </div>
   </div>
-
-
-<div>
-  <p>For test: Standard credit card</p>
-  <p>4242 4242 4242 4242</p>
 </div>
