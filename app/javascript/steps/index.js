@@ -9,7 +9,7 @@ function test(){
     const button = document.getElementById("clickopen"+rank);
     if (button){
       button.addEventListener("click", addopenclass, false);
-    }  
+    }
   });
 
   function addopenclass(){
@@ -23,7 +23,7 @@ function test(){
     console.log(button);
     if (button){
       button.addEventListener("click", addcloseclass, false);
-    }  
+    }
   });
 
   function addcloseclass(){
@@ -89,7 +89,7 @@ function test(){
       video.classList.add("d-block");
       coach.classList.remove("d-none");
       coach.classList.add("d-block");
-      
+
 
     });
 
@@ -97,5 +97,5 @@ function test(){
 
   opning(open);
 
-}
+ }
 export {test};
