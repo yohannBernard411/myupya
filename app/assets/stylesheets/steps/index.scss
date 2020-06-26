@@ -7,7 +7,12 @@
   width: 250px;
   height: auto;
 }
-.para {
+
+.smallpicture{
+  width: 100px;
+  height: 40px;
+}
+.para{
   width: 500px;
 }
 
@@ -94,27 +99,20 @@ body {
   border-radius: 6px;
   height: 100%;
 }
+.contentnone {
+  padding: 20px 30px;
+  background-color: transparent;
+  position: relative;
+  border-radius: 6px;
+  height: 100%;
+}
+.righter {
+  left: 50%;
+}
+.containerblank {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  height: 200px;
+}
 
-// si class replier alors
-
-// .hidden_part{
-//   .left{
-//     left: 50%;
-//   }
-//   .right{
-//     left: 50%;
-//   }
-//   .container::after {
-//     display: none;
-//   }
-//   .left::before {
-//     display: none;
-//   }
-//   .right::before {
-//     display: none;
-//   }
-//   .container{
-//     animation: 4s;
-//     height: 10px;
-//   }
-// }

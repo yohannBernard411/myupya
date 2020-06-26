@@ -8,6 +8,6 @@ const disabled = () => {
 })
 };
 
-disabled()
+
 
 export { disabled };
