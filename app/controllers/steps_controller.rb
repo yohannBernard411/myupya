@@ -11,13 +11,17 @@ class StepsController < ApplicationController
   def up
     @question = Question.find(current_user.current_question_id)
     @choice = Choice.where(question_id: @question.id)
-    @next_question = Question.find(@choice[0].next_question_id)
-    @next_step = Step.find(@choice[0].step_id)
-    current_user.update(
-      current_question_id: @next_question.id,
-      step_id: @next_step.id
-    )
-    redirect_to question_path(current_user.current_question_id)
+    if @choice[0].next_question_id
+      @next_question = Question.find(@choice[0].next_question_id)
+      @next_step = Step.find(@choice[0].step_id)
+      current_user.update(
+        current_question_id: @next_question.id,
+        step_id: @next_step.id
+      )
+      redirect_to question_path(current_user.current_question_id)
+    else
+      redirect_to pages_show_path
+    end
   end
   
 end
