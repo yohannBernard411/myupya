@@ -1,10 +1,9 @@
 const activebtn = () => {
-  document.querySelectorAll("label").forEach((label) => {
+  const labels = document.querySelectorAll("label");
+  labels.forEach((label) => {
     label.addEventListener("click", (event) => {
-      event.currentTarget.classList.toggle("activebtn");
+      label.classList.toggle("activebtn");
     });
   });
 };
-
-activebtn();
 export { activebtn };
