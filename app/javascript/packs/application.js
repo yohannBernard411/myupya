@@ -3,10 +3,10 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require("@rails/ujs").start()
-require("turbolinks").start()
-require("@rails/activestorage").start()
-require("channels")
+require("@rails/ujs").start();
+require("turbolinks").start();
+require("@rails/activestorage").start();
+require("channels");
 
 //= require jquery    # Not included
 //= require jquery-ui # Not included
@@ -19,7 +19,6 @@ require("channels")
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
@@ -27,19 +26,17 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import { test } from '../steps/index';
+import { test } from "../steps/index";
 
 // Internal imports, e.g:
-import { disabled } from '../components/_disabled_button';
+import { disabled } from "../components/_disabled_button";
+import { activebtn } from "../components/_active";
 
 // import { initSelect2 } from '../components/init_select2';
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener("turbolinks:load", () => {
   disabled();
   // Call your functions here, e.g:
   // initSelect2();
   test();
 });
-
-
-

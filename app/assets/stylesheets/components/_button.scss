@@ -17,3 +17,29 @@
   -webkit-animation: heartbeat 1.5s ease-in-out infinite both;
   animation: heartbeat 1.5s ease-in-out infinite both;
 }
+
+#button-question-form {
+  margin-top: 50px;
+}
+
+input[type="radio"] {
+  margin-top: 50px;
+  display: none;
+}
+
+label {
+  cursor: pointer;
+  margin-right: 18px;
+  color: #fc9962;
+  background-color: white;
+  padding: 18px;
+  border-radius: 8px;
+  opacity: 0.5;
+  width: 100px;
+}
+
+.activebtn {
+  color: white;
+  background-color: #fc9962;
+  opacity: 1;
+}
