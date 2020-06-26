@@ -1,10 +1,10 @@
-<h1>Questions#show</h1>
-<p>Find me in app/views/questions/show.html.erb</p>
-
-<%= @question.title %>
-
-<%= simple_form_for @question, url: (answers_path), method: :post do |f|%>
-  <%= f.collection_radio_buttons :choices, [[@question.choices[0].id, 'OUI'] ,[@question.choices[1].id, 'NON']], :first, :last %>
-  <%= f.submit value: 'Valider', class: 'btn btn-primary', id: 'button-question-form', disabled: true , data: { "disable-with": "update question"} %>
-<% end %>
+<div class="bg-gradient">
+  <div class="form">
+    <p class="tracking-in-contract "><%= @question.title %></p>
+    <%= simple_form_for @question, url: (answers_path), method: :post do |f|%>
+      <%= f.collection_radio_buttons :choices, [[@question.choices[0].id, 'OUI'] ,[@question.choices[1].id, 'NON']], :first, :last %>   <br>
+      <%= f.submit value: 'Valider', class: 'button', id: 'button-question-form', disabled: true , data: { "disable-with": "Valider"} %>
+    <% end %>
+  </div>
+</div>
 

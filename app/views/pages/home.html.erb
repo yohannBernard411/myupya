@@ -4,10 +4,14 @@
             <div class="col-6">
                 <h1 class="pb-4 ">Votre <span class="bold">Renouveau</span> Professionnel Commence Sur <span class="main-color bold">Upya</span>.</h1>
                 <p class="text-muted pb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit rem ut quae officiis maiores corrupti quis distinctio veritatis quidem.</p>
-                <%= link_to "Faire mon bilan", question_path(current_user.current_question_id), class: 'button' %>
+                <% if current_user %>
+                  <%= link_to "Faire mon bilan", question_path(current_user.current_question_id), class: 'button' %>
+                <% else %>
+                  <%= link_to "Faire mon bilan", question_path(Question.first), class: 'button' %>
+                <% end %>
             </div>
             <div class="col-6">
-                <%= image_tag "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593091182/3534909_ezyjda.png", width: "150%" %>
+                <%= image_tag "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593091182/3534909_ezyjda.png", width: "100%" %>
             </div>
         </div>
     </div>
@@ -16,36 +20,36 @@
     <div class="row ">
         <div class="col-8 offset-2 text-center">
             <h2>Le concept UPYA !</h2>
-            <p class="text-muted pb-4">Notre mission est de vous aider à réaliser votre projet de reconversion professionnel en vous proposant 
+            <p class="text-muted pb-4">Notre mission est de vous aider à réaliser votre projet de reconversion professionnel en vous proposant
             une méthodologie efficiente pour structurer votre projet.</p>
         </div>
     </div>
     <div class="row offset-1">
         <div class="col-3 homecard mt-5 mr-5 ml-4">
             <div class="top">
-                <%= image_tag "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593092728/20670ppppp_ifubpn.png", width: "100%", id: "img-card" %>    
+                <%= image_tag "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593092728/20670ppppp_ifubpn.png", width: "100%", id: "img-card" %>
             </div>
             <div class="bot text-center pt-3 ">
             <h3 class="m-2">Informations qualitatives gratuites</h3>
-            <p class="text-muted m-3">Véritable mine d’informations pour avoir toutes les cartes en main afin d’entreprendre votre projet de reconversion professionnel plus sereinement.</p>    
+            <p class="text-muted m-3">Véritable mine d’informations pour avoir toutes les cartes en main afin d’entreprendre votre projet de reconversion professionnel plus sereinement.</p>
             </div>
         </div>
         <div class="col-3 homecard mt-5 mr-5 ml-4">
             <div class="top2">
-                <%= image_tag "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593094474/xx_lnexvs.png", width: "100%", id: "img-card" %>    
+                <%= image_tag "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593094474/xx_lnexvs.png", width: "100%", id: "img-card" %>
             </div>
             <div class="bot text-center pt-3">
             <h3 class="m-2">Services d'accompagnements</h3>
-            <p class="text-muted m-3">Chaque projet de reconversion est différent, nous proposons un service d’accompagnement pour maximiser votre réussite dans votre projet de reconversion professionnel.</p>    
+            <p class="text-muted m-3">Chaque projet de reconversion est différent, nous proposons un service d’accompagnement pour maximiser votre réussite dans votre projet de reconversion professionnel.</p>
             </div>
         </div>
         <div class="col-3 homecard mt-5 mr-5 ml-4">
             <div class="top3">
-                <%= image_tag "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593094586/123_e6g3wz.png", width: "75%", id: "img-card2" %>    
+                <%= image_tag "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593094586/123_e6g3wz.png", width: "75%", id: "img-card2" %>
             </div>
             <div class="bot text-center pt-3">
             <h3 class="m-2" >Formations en e-learning</h3>
-            <p class="text-muted m-3">Les formations en e-learning permettent de monter en compétences en parfaite autonomie en vue d’acquérir de la méthode dans la conduite de votre projet de reconversion professionnel.</p>    
+            <p class="text-muted m-3">Les formations en e-learning permettent de monter en compétences en parfaite autonomie en vue d’acquérir de la méthode dans la conduite de votre projet de reconversion professionnel.</p>
             </div>
         </div>
     </div>
@@ -53,7 +57,7 @@
 <div class="container pt-5">
     <div class="row">
         <div class="col-8 offset-2 text-center">
-            <h2>Comment fontcionne Upya ?</h2>
+            <h2>Comment fonctionne Upya ?</h2>
             <p class="text-muted">Nous proposons un accompagnement personnalisé pour vous aider dans le long processus qu’est la reconversion 
             professionnelle afin de maximiser vos chances de réussites.</p>
         </div>
@@ -73,7 +77,6 @@
         </div>
     </div>
     <div class="row align-items-center offset-1 pt-5">
-
         <div class="col-5">
             <%= image_tag "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593113299/card2_xgesaa.png", class: "image-card" %>
         </div>
@@ -87,8 +90,8 @@
     </div>
     <div class="row align-items-center offset-1 pt-5">
         <div class="col-5">
-            <h3>S'inscrire et faire son bilan</h3>
-            <p class="text-muted">Un accompagnement personnalisé pour vous aider à faire le point sur vos expériences passées en vue de mieux préparer votre futur.</p>
+            <h3>Choix de la formation & inscription</h3>
+            <p class="text-muted">Sélectionner la formation la plus à même de correspondre à votre projet et vous aider dans l’ensemble de vos démarches administratives : du dossier de candidature jusqu’à l’entretien de sélection.</p>
         </div>
         <div class="col-1">
             <i class="fas bgfas3 fa-arrow-right"></i>
@@ -105,14 +108,14 @@
             <i class="fas bgfas fa-arrow-left"></i>
         </div>
         <div class="col-5">
-            <h3>Définition & validation du projet professionnel</h3>
-            <p class="text-muted">Au regard de vos expériences précédentes et des informations récoltées lors de votre bilan professionnel, nous vous accompagnons pour définir et valider votre projet professionnel.</p>
+            <h3>Conduite d'entretien</h3>
+            <p class="text-muted">La conduite d’entretien peut représenter une difficulté pour la plupart des candidats. A l’instar de l’ensemble des compétences, cela s’apprend ! Nous vous accompagnons et vous préparons au processus d’entretien professionnel, que cela soit pour candidater à une formation ou à votre nouvel emploi.</p>
         </div>
     </div>
     <div class="row align-items-center offset-1 pt-5">
         <div class="col-5">
-            <h3>S'inscrire et faire son bilan</h3>
-            <p class="text-muted">Un accompagnement personnalisé pour vous aider à faire le point sur vos expériences passées en vue de mieux préparer votre futur.</p>
+            <h3>Méthodologie d'apprentissage</h3>
+            <p class="text-muted">Que vous suiviez une formation à distance ou en présentiel, il est impératif d’avoir de la méthode pour assimiler les nouvelles connaissances & compétences que vous allez aborder durant votre formation.</p>
         </div>
         <div class="col-1">
             <i class="fas bgfas2 fa-arrow-right"></i>
