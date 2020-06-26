@@ -36,6 +36,7 @@ import { activebtn } from "../components/_active";
 
 document.addEventListener("turbolinks:load", () => {
   disabled();
+  activebtn();
   // Call your functions here, e.g:
   // initSelect2();
   test();
