@@ -20,7 +20,7 @@
 }
 
 .bg-gradient {
-  height: 100vh;
+  height: calc(100vh - 90.9px);
   background: rgb(255, 255, 255);
   background: linear-gradient(
     180deg,
