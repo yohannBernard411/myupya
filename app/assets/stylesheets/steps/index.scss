@@ -7,13 +7,19 @@
   width: 250px;
   height: auto;
 }
-
+.bigvignette{
+  width: 500px;
+  height: auto;
+}
 .smallpicture{
   width: 100px;
   height: 40px;
 }
 .para{
-  width: 500px;
+  width: 450px;
+}
+.containermine{
+  margin-left: 0;
 }
 
 * {
@@ -48,6 +54,27 @@ body {
   margin-left: -3px;
 }
 
+/* Container around content */
+.containermine {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.containermine::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -10px;
+  background-color: white;
+  border: 4px solid #FF9F55;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
 /* Place the container to the left */
 .left {
   left: 0;

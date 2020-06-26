@@ -1,5 +1,9 @@
-<h1>Video</h1>
-
-<iframe width="956" height="538" src=<%= @video.url %>
- frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;
-  picture-in-picture" allowfullscreen></iframe>
+<div class="container">
+  <h1 class="m-5 text-center">Video</h1>
+  <div class="p-5">
+    <iframe width="956" height="538" src=<%= @video.url %>
+    frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;
+      picture-in-picture" allowfullscreen></iframe>
+  </div>
+  <%= link_to "Retour", steps_path(anchor: Step.find(current_user.step_id).position), class:"btn btn-primary mb-5" %>
+</div>

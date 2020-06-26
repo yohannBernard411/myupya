@@ -1,3 +1,6 @@
-<h1><%= @article.title %></h1>
-<%= image_tag @article.image %>
-<p><%= @article.content %></p>
+<div class="container">
+  <h1 class="p-5"><%= @article.title %></h1>
+  <%= image_tag @article.image, class:"vignette bigvignette m-4" %>
+  <p class="text-justify"><%= @article.content %></p>
+  <%= link_to "Retour", steps_path(anchor: Step.find(current_user.step_id).position), class:"btn btn-primary" %>
+</div>
