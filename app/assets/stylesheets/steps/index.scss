@@ -1,9 +1,9 @@
-.vignette{
+.vignette {
   width: auto;
   height: 80px;
   float: left;
 }
-.small_vignette{
+.small_vignette {
   width: 250px;
   height: auto;
 }
@@ -26,6 +26,9 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: white;
+}
 /* Set a background color */
 .subbody {
   background-color: #474e5d;
@@ -41,7 +44,7 @@
 
 /* The actual timeline (the vertical ruler) */
 .timeline::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 6px;
   background-color: white;
@@ -72,7 +75,6 @@
   border-radius: 50%;
   z-index: 1;
 }
-
 /* Place the container to the left */
 .left {
   left: 0;
