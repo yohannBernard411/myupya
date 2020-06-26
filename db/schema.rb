@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_24_234617) do
+ActiveRecord::Schema.define(version: 2020_06_25_001619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_06_24_234617) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "photo_url"
+    t.integer "price_cents", default: 0, null: false
   end
 
   create_table "consultations", force: :cascade do |t|
@@ -59,6 +60,19 @@ ActiveRecord::Schema.define(version: 2020_06_24_234617) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["coach_id"], name: "index_consultations_on_coach_id"
     t.index ["step_id"], name: "index_consultations_on_step_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "coach_sku"
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.bigint "user_id", null: false
+    t.bigint "coach_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["coach_id"], name: "index_orders_on_coach_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -105,6 +119,8 @@ ActiveRecord::Schema.define(version: 2020_06_24_234617) do
   add_foreign_key "choices", "steps"
   add_foreign_key "consultations", "coaches"
   add_foreign_key "consultations", "steps"
+  add_foreign_key "orders", "coaches"
+  add_foreign_key "orders", "users"
   add_foreign_key "users", "steps"
   add_foreign_key "videos", "steps"
 end

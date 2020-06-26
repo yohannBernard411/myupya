@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   get 'pages/show'
   get 'steps/up'
 
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
+  end
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
   devise_for :users
   root to: 'pages#home'
   resources :questions, only: :show
