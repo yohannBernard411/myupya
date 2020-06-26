@@ -8,7 +8,6 @@ class AnswersController < ApplicationController
       user: current_user,
       choice: choice
     )
-
     if choice.next_question_id
       current_user.update(
         current_question_id: choice.next_question_id
