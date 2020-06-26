@@ -1,0 +1,21 @@
+.footer {
+  width: 100%;
+  border-top: 1px solid #ffecb0;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 238, 180, 1) 100%
+  );
+  & h3 {
+    color: #fc9962;
+    font-weight: bold;
+  }
+  & p {
+    color: gray;
+  }
+}
+
+.fab {
+  color: #fc9962;
+}
