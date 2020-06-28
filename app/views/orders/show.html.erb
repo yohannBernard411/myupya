@@ -1,14 +1,14 @@
 <div class="container pt-5">
+  <h1 class="text-center">Achat n°<%= @order.id %> <small><span class="badge"><%= @order.state %></span></small></h1>
   <div class="text-center pt-5">
     <div class="row py-4">
-      <div class="col-md-3"><%= image_tag @order.coach.photo_url, width: '100%' %></div>
-      <div class="col">
-        <h1>Achat n°<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
-        <ul class="list-unstyled">
-          <li><strong>Commandé le</strong> <%= @order.created_at.to_date %></li>
-          <li><strong>Coach</strong> <%= @order.coach.email %> [<%= @order.coach_sku %>]</li>
-          <li><strong>Pour le prix de</strong> <%= humanized_money_with_symbol @order.amount %></li>
-          <%= link_to "Retour au step", steps_path(anchor: Step.find(current_user.step_id).position), class: "btn btn-primary" %>
+      <div class="col-6"><%= image_tag @order.coach.photo_url, class: " bigvignette" %></div>
+      <div class="col-6">
+        <ul class="list-unstyled text-center">
+          <li class="mb-5"><h2><strong>Commandé le </strong><%= @order.date.split("-")[2] %> <%= @month %> <%= @order.date.split("-")[0] %></h2></li>
+          <li class="mb-5"><h2><strong>Avec le coach</strong> <%= @order.coach.email %></h2></li>
+          <li class="mb-5"><h2><strong>Pour le prix de</strong> <%= humanized_money_with_symbol @order.amount %></h2></li>
+          <%= link_to "Retour au step", steps_path(anchor: Step.find(current_user.step_id).position), class: "btn my-button" %>
           </li>
         </ul>
       </div>

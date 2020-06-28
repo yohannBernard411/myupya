@@ -1,11 +1,14 @@
 <div class="container">
+<h1 class="text-center p-5">Récapitulatif de paiement</h1>
   <div class="row py-4">
-    <div class="col-md-3"><%= image_tag @order.coach.photo_url, width: '100%' %></div>
-    <div class="col">
-      <h1>Récapitulatif de paiement</h1>
-      <p>Achat d'une scéance avec <strong><%= @order.coach.email %></strong></p>
-      <p> pour <strong><%= humanized_money_with_symbol @order.amount %></strong></p>
-      <button id="pay" class="btn btn-primary">Payer</button>
+
+    <div class="col-6"><%= image_tag @order.coach.photo_url, width: '100%', class:"bigvignette" %></div>
+    
+    <div class="col text-center">
+      <h2 class="mb-5">Achat d'une scéance avec <strong><%= @order.coach.email %></strong></h2>
+      <h2>A la date du <%= @order.date.split("-")[2] %> <%= @month %> <%= @order.date.split("-")[0] %></h2><br>
+      <h2 class="mb-5"> Pour la somme de  <strong><%= humanized_money_with_symbol @order.amount %></strong></h2>
+      <button id="pay" class="btn my-button mb-5">Payer</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         const paymentButton = document.getElementById('pay');
