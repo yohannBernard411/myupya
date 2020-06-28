@@ -1,6 +1,7 @@
 require 'open-uri'
 require 'nokogiri'
 
+
 Article.destroy_all
 Video.destroy_all
 Coach.destroy_all
@@ -22,19 +23,23 @@ step7 = Step.create!(position: 7, title: "INTEGRATION EN ENTREPRISE & FORMATION 
 step8 = Step.create!(position: 8, title: "Félicitations ! Vous avez finalisé votre reconversion professionnelle !") # Use this step to moving forward into the form
 puts "> All the steps are created !"
 
+
 # articles
 rank = Step.first.id
 puts "all articles are destroy, but don't panic"
-urls = ["https://www.pole-emploi.fr/candidat/votre-projet-professionnel/evaluer-vos-competences/levaluation-des-competences-et-d.html",
+urls_pole = ["https://www.pole-emploi.fr/candidat/votre-projet-professionnel/evaluer-vos-competences/levaluation-des-competences-et-d.html",
         "https://www.pole-emploi.fr/candidat/vos-recherches/bien-vous-organiser/decouvrez-vos-competences-transv.html",
         "https://www.pole-emploi.fr/candidat/votre-projet-professionnel/definir-votre-projet-professionn/le-conseil-en-evolution-professi.html",
         "https://www.pole-emploi.fr/region/occitanie/candidat/formation/une-formation-pour-quoi-faire.html",
         "https://www.pole-emploi.fr/candidat/en-formation/definir-vos-besoins/choisir-votre-formation.html",
         "https://www.pole-emploi.fr/candidat/vos-recherches/bien-vous-organiser/3-idees-pour-enrichir-votre-parc.html",
-        "https://www.pole-emploi.fr/employeur/vos-recrutements/integrer-un-nouveau-salarie/entretien-tutorat-parrainage-pri.html"
+        "https://www.pole-emploi.fr/employeur/vos-recrutements/integrer-un-nouveau-salarie/entretien-tutorat-parrainage-pri.html",
+        "https://www.pole-emploi.fr/candidat/votre-projet-professionnel/evaluer-vos-competences/le-bilan-de-competences.html",
+        "https://www.pole-emploi.fr/candidat/votre-projet-professionnel/definir-votre-projet-professionn/realiser-une-immersion-professio.html"
       ]
+
 base = "https://www.pole-emploi.fr"
-urls.each do |url|
+urls_pole.each_with_index do |url, index|
   article = Article.new
   html_file = open(url).read
   html_doc = Nokogiri::HTML(html_file)
@@ -60,11 +65,77 @@ urls.each do |url|
     article.image = url_image
   end
   puts rank
-  article.step_id = rank
+  if rank > Step.last.id
+    article.step_id = Step.first.id
+  else
+    article.step_id = rank
+  end
   article.save!
   rank += 1
   sleep 2
 end
+
+urls_jungle = ["https://www.welcometothejungle.com/fr/articles/methode-ikigai-trouver-job"]
+
+urls_jungle.each do |url|
+  article = Article.new
+  html_file = open(url).read
+  html_doc = Nokogiri::HTML(html_file)
+  paragraphes = []
+  element = html_doc.search('.sc-11unfkk-2')
+  puts element
+  titre = element.search('h1').text.strip
+  article.title = titre
+  paragraphe = element.search('.hdl9e2-7').text.strip
+  article.content = paragraphe
+  article.step_id = Step.first.id
+  if element.search('img').attribute('src')
+    image = element.search('img').attribute('src').text.strip
+    article.image = image
+  end
+  article.save!
+end
+
+urls_workplace = ["https://www.helloworkplace.fr/competences-transversales-communes-a-metiers/"]
+
+urls_workplace.each do |url|
+  article = Article.new
+  html_file = open(url).read
+  html_doc = Nokogiri::HTML(html_file)
+  element = html_doc.search('.post-content')
+  puts element
+  titre = element.search('h1').text.strip
+  article.title = titre
+  paragraphe = element.search('.entry-content').text.strip
+  article.content = paragraphe
+  article.step_id = Step.first.id
+  if element.search('img').attribute('src')
+    image = element.search('img')[1].attribute('src').text.strip
+    article.image = image
+  end
+  article.save!
+end
+
+urls_diplomeo = ["https://diplomeo.com/actualite-dossier_candidature_formation"]
+
+urls_diplomeo.each do |url|
+  article = Article.new
+  html_file = open(url).read
+  html_doc = Nokogiri::HTML(html_file)
+  element = html_doc.search('.container')
+  puts element
+  titre = element.search('h1').text.strip
+  article.title = titre
+  paragraphe = element.search('.js-toc').text.strip
+  article.content = paragraphe
+  article.step_id = Step.all[3].id
+  if element.search('source')
+    image = element.search('source')[0].attribute('data-srcset').text.strip
+    article.image = image
+  end
+  article.save!
+end
+
 puts "Now the article db is fill"
 
 # questions
@@ -138,6 +209,8 @@ user10 = User.create!(email: "gustavo@user.com", password: "azerty", name: "Gust
 me = User.create!(email: "user@test.fr", password: "azerty", name: "Joseph", current_question_id: Question.first.id, step_id: Step.first.id)
 puts "> All the users are created !"
 
+
+
 # video youtube:
 rank = Step.first.id
 puts "all videos are destroy, but don't panic"
@@ -147,7 +220,24 @@ youtube_url = ["https://www.youtube.com/embed/jpPL_5dHGSA",
                "https://www.youtube.com/embed/hkVFPpElRjk",
                "https://www.youtube.com/embed/WUKzm250bU8",
                "https://www.youtube.com/embed/91EZeR5tbos?list=PLi6L3Jci2WszzB8Nmr_rKoT7UDyQAt4VX",
-               "https://www.youtube.com/embed/fzqwEcIaauk" 
+               "https://www.youtube.com/embed/fzqwEcIaauk",
+               "https://www.youtube.com/embed/MLntp09G0-g",
+               "https://www.youtube.com/embed/At8euxpGOzY",
+               "https://www.youtube.com/embed/TYYnV65gVKs",
+               "https://www.youtube.com/embed/Qb1ndnx5K1g",
+               "https://www.youtube.com/embed/Bm1yJNJ_rv0",
+               "https://www.youtube.com/embed/HPMz1XDpVFw",
+               "https://www.youtube.com/embed/i9JrMXTcdbQ",
+               "https://www.youtube.com/embed/HYTyJht3pHE",
+               "https://www.youtube.com/embed/Vfr9MyihCgU",
+               "https://www.youtube.com/embed/yleibzLh_u8",
+               "https://www.youtube.com/embed/x0xQCTgCS38",
+               "https://www.youtube.com/embed/1kSosmRpr04",
+               "https://www.youtube.com/embed/uwJ5NfvtHq8",
+               "https://www.youtube.com/embed/AA89w0xKBPU",
+               "https://www.youtube.com/embed/H28_WbLvlSQ",
+               "https://www.youtube.com/embed/_K1z18A42OE"
+
               ]
 miniatures = ["https://zupimages.net/up/20/26/d9ds.png",
               "https://zupimages.net/up/20/26/rx3y.png",
@@ -155,18 +245,144 @@ miniatures = ["https://zupimages.net/up/20/26/d9ds.png",
               "https://zupimages.net/up/20/26/t4n3.png",
               "https://zupimages.net/up/20/26/dg41.png",
               "https://zupimages.net/up/20/26/2yy2.png",
-              "https://zupimages.net/up/20/26/e8ub.png" 
+              "https://zupimages.net/up/20/26/e8ub.png",
+              "https://www.youtube.com/embed/T2CyOc9fCxQ",
+              "https://www.youtube.com/embed/qRMpEPdM74c",
+              "https://zupimages.net/up/20/27/3glx.png",
+              "https://zupimages.net/up/20/27/cuup.png",
+              "https://zupimages.net/up/20/27/xkye.png",
+              "https://zupimages.net/up/20/27/dmx0.png",
+              "https://zupimages.net/up/20/27/s682.png",
+              "https://zupimages.net/up/20/27/mvl4.png",
+              "https://zupimages.net/up/20/27/sk3c.png",
+              "https://zupimages.net/up/20/27/lbcl.png",
+              "http://img.youtube.com/vi/i9JrMXTcdbQ/0.jpg",
+              "https://zupimages.net/up/20/27/zbz8.png",
+              "https://zupimages.net/up/20/27/hac1.png",
+              "https://zupimages.net/up/20/27/b7oq.png",
+              "https://zupimages.net/up/20/27/19sd.png",
+              "https://zupimages.net/up/20/27/jdv6.png",
+              "http://img.youtube.com/vi/uwJ5NfvtHq8/0.jpg",
+              "https://zupimages.net/up/20/27/r4bi.png",
+              "https://zupimages.net/up/20/27/0kcm.png",
+              "http://img.youtube.com/vi/_K1z18A42OE/0.jpg"
              ]
+steps = [1, 2, 3, 4, 5, 6, 7, 1, 1, 1, 2, 2, 3, 3, 4, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7]
 youtube_url.each_with_index do |url, index|
   video = Video.new
   video.url = url
-  video.step_id = rank
   puts video.url
+  puts index #0
+  puts steps[index] #1
+  puts Step.all[steps[index]-1].id
   video.picture = miniatures[index]
+  video.step_id = Step.all[steps[index]-1].id
   video.save!
   rank += 1
 end
 puts "Now the video db is fill"
+
+=begin
+
+le constat (faire le point sur son parcours pro)
+
+picture: 
+
+
+se recentrer sur ses centres d intérêts/hobbies
+
+picture: 
+
+
+identifier des métiers en adéquation avec ses appétences
+
+picture: 
+
+
+se renseigner sur le marché et ses evolutions
+
+picture: 
+
+
+faire une immersion en milieu pro
+
+picture: 
+
+
+définir une grille de selection de formations 
+professionnelles avec critères spécifiques 
+(qualité, coût, durée, débouchés pros, 
+reconnaissance dans le secteur...)
+
+picture: 
+
+
+se renseigner auprès des organismes publiques 
+pour recenser les possibilités de financement 
+
+picture: 
+(Pôle Emploi, Région, etc..)
+
+
+préparer le dossier d admission
+
+picture: 
+
+
+s'approprier une méthodologie d'apprentissage
+
+picture:
+
+
+mettre en place un planning de mise à niveau
+ pour pallier ses lacunes
+
+ picture: 
+ 
+
+ faire un bilan pour définir ses forces et faiblesses
+
+ picture: 
+ 
+
+ faire des relances efficaces
+
+ picture: 
+ 
+
+ préparer votre entretien d'embauche
+
+ picture: 
+ 
+
+ apprendre à synthétiser les infos dans la candidature
+
+ picture: 
+ 
+
+ prendre contact avec les entreprises et 
+ faire la différence en récoltant de l'info
+
+ picture 
+ 
+
+ définir le périmètre de recherches des 
+ opportunités pros à l'aide d'un dashboard
+
+ picture: 
+ 
+
+ continuer à s'auto-former pour rester performant
+
+ picture: 
+ 
+
+ s'intégrer aux équipes et participer à la vie de l'entreprise
+
+ picture 
+
+=end
+ 
 
 # coaching:
 puts "please wait, we fill the coach db"
