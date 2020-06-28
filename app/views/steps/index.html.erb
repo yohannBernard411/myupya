@@ -19,9 +19,9 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <% for step in 0..6 %>
-                  <div class="swiper-slide" style="background-image: url(https://unsplash.it/1920/500?image=11">
+                  <div class="swiper-slide" style="background-image: url(https://unsplash.it/1920/500?image=11" data-year="Step <%= step + 1 %>">
                       <div class="swiper-slide-content"><span class="timeline-year">Step <%= step + 1 %></span>
-                          <h4 class="timeline-title"><%= @steps[step].title %> !</h4>
+                          <h4 class="timeline-title"><%= @steps[step].title %></h4>
                           <p class="timeline-text">Lorem ipsum dolor site amet, consectetur adipscing elit, sed do eisumod tempor incididut ut labore et dolore magna aliqua. Ut enim ad mimim venjam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                       </div>
                   </div>
