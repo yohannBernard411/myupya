@@ -31,16 +31,12 @@ import { test } from "../steps/index";
 
 // Internal imports, e.g:
 import { disabled } from "../components/_disabled_button";
-import { activebtn } from "../components/_active";
-import { autosubmit } from "../components/_autosubmit";
 import { date } from "../components/_date";
 
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener("turbolinks:load", () => {
   
-  activebtn();
-  autosubmit();
   disabled();
   date();
   // Call your functions here, e.g:
