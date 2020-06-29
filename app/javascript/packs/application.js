@@ -33,12 +33,14 @@ import { test } from "../steps/index";
 import { disabled } from "../components/_disabled_button";
 import { date } from "../components/_date";
 
+import AOS from "aos";
+
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener("turbolinks:load", () => {
-  
   disabled();
   date();
+  AOS.init();
   // Call your functions here, e.g:
   // initSelect2();
   test();
