@@ -33,6 +33,9 @@ import { test } from "../steps/index";
 import { disabled } from "../components/_disabled_button";
 import { date } from "../components/_date";
 import { timelineSwiper } from "../components/_swiper";
+import { reactive } from "../components/_swiper";
+// import { activeTarget } from "../components/_swiper";
+// import { targetAnchor } from "../components/_swiper";
 import AOS from "aos";
 
 // import { initSelect2 } from '../components/init_select2';
@@ -41,7 +44,11 @@ document.addEventListener("turbolinks:load", () => {
   disabled();
   date();
   AOS.init();
+  reactive();
 
+  // activeTarget();
+  // timelineSwiper();
+  // targetAnchor();
   // Call your functions here, e.g:
   // initSelect2();
   // test();

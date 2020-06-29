@@ -25,7 +25,8 @@ class AnswersController < ApplicationController
     if choice.question_id == Question.last.id && choice.value == true
       redirect_to pages_show_path
     elsif choice.next_question_id.nil?
-      redirect_to steps_path(anchor: Step.find(current_user.step_id).position)
+      cookies[:currentstep] = (Step.find(current_user.step_id).position).to_s || 'none'
+      redirect_to steps_path(anchor: "my_target")
     else
       redirect_to question_path(choice.next_question_id)
     end
