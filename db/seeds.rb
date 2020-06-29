@@ -267,6 +267,32 @@ miniatures = ["https://zupimages.net/up/20/26/d9ds.png",
               "https://zupimages.net/up/20/27/0kcm.png",
               "http://img.youtube.com/vi/_K1z18A42OE/0.jpg"
              ]
+             titles = ["BILAN PROFESSIONNEL",
+                       "VALIDATION PROJET PROFESSIONNEL",
+                       "CHOIX FORMATION & FINANCEMENT",
+                       "INSCRIPTION FORMATION & SELECTION CANDIDAT",
+                       "INTEGRATION & SUIVI DE FORMATION",
+                       "RECHERCHES OPPORTUNITÉS PRO POST FORMATION",
+                       "INTEGRATION EN ENTREPRISE & FORMATION CONTINUE",
+                       "le constat (faire le point sur son parcours pro)",
+                       "se recentrer sur ses centres d intérêts/hobbies",
+                       "identifier des métiers en adéquation avec ses appétences",
+                       "se renseigner sur le marché et ses evolutions",
+                       "faire une immersion en milieu pro",
+                       "définir une grille de selection de formations professionnelles avec critères spécifiques (qualité, coût, durée, débouchés pros, reconnaissance dans le secteur...)",
+                       "se renseigner auprès des organismes publiques pour recenser les possibilités de financement, (Pôle Emploi, Région, etc..)",
+                       "préparer le dossier d admission",
+                       "s'approprier une méthodologie d'apprentissage",
+                       "mettre en place un planning de mise à niveau pour pallier ses lacunes",
+                       "faire un bilan pour définir ses forces et faiblesse",
+                       "faire des relances efficaces",
+                       "préparer votre entretien d'embauche",
+                       "apprendre à synthétiser les infos dans la candidature",
+                       "prendre contact avec les entreprises et faire la différence en récoltant de l'info",
+                       "définir le périmètre de recherches des opportunités pros à l'aide d'un dashboard",
+                       "continuer à s'auto-former pour rester performant",
+                       "s'intégrer aux équipes et participer à la vie de l'entreprise"
+                     ]
 steps = [1, 2, 3, 4, 5, 6, 7, 1, 1, 1, 2, 2, 3, 3, 4, 5, 5, 5, 6, 6, 6, 6, 6, 7, 7]
 youtube_url.each_with_index do |url, index|
   video = Video.new
@@ -277,112 +303,13 @@ youtube_url.each_with_index do |url, index|
   puts Step.all[steps[index]-1].id
   video.picture = miniatures[index]
   video.step_id = Step.all[steps[index]-1].id
+  video.title = titles[index]
   video.save!
   rank += 1
 end
 puts "Now the video db is fill"
 
-=begin
 
-le constat (faire le point sur son parcours pro)
-
-picture: 
-
-
-se recentrer sur ses centres d intérêts/hobbies
-
-picture: 
-
-
-identifier des métiers en adéquation avec ses appétences
-
-picture: 
-
-
-se renseigner sur le marché et ses evolutions
-
-picture: 
-
-
-faire une immersion en milieu pro
-
-picture: 
-
-
-définir une grille de selection de formations 
-professionnelles avec critères spécifiques 
-(qualité, coût, durée, débouchés pros, 
-reconnaissance dans le secteur...)
-
-picture: 
-
-
-se renseigner auprès des organismes publiques 
-pour recenser les possibilités de financement 
-
-picture: 
-(Pôle Emploi, Région, etc..)
-
-
-préparer le dossier d admission
-
-picture: 
-
-
-s'approprier une méthodologie d'apprentissage
-
-picture:
-
-
-mettre en place un planning de mise à niveau
- pour pallier ses lacunes
-
- picture: 
- 
-
- faire un bilan pour définir ses forces et faiblesses
-
- picture: 
- 
-
- faire des relances efficaces
-
- picture: 
- 
-
- préparer votre entretien d'embauche
-
- picture: 
- 
-
- apprendre à synthétiser les infos dans la candidature
-
- picture: 
- 
-
- prendre contact avec les entreprises et 
- faire la différence en récoltant de l'info
-
- picture 
- 
-
- définir le périmètre de recherches des 
- opportunités pros à l'aide d'un dashboard
-
- picture: 
- 
-
- continuer à s'auto-former pour rester performant
-
- picture: 
- 
-
- s'intégrer aux équipes et participer à la vie de l'entreprise
-
- picture 
-
-=end
- 
 
 # coaching:
 puts "please wait, we fill the coach db"
