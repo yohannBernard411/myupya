@@ -32,7 +32,6 @@ import { test } from "../steps/index";
 // Internal imports, e.g:
 import { disabled } from "../components/_disabled_button";
 import { date } from "../components/_date";
-import { date, smooth } from "../components/_smooth";
 
 import AOS from "aos";
 
