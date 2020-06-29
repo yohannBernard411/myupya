@@ -45,6 +45,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'money-rails'
 gem 'stripe'
 gem 'stripe_event'
+gem 'aos', '~> 0.1.0'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
