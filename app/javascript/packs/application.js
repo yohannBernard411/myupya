@@ -37,6 +37,7 @@ import { reactive } from "../components/_swiper";
 // import { activeTarget } from "../components/_swiper";
 // import { targetAnchor } from "../components/_swiper";
 import AOS from "aos";
+import { opacity } from "../components/_myeffect";
 
 // import { initSelect2 } from '../components/init_select2';
 
@@ -44,11 +45,15 @@ document.addEventListener("turbolinks:load", () => {
   disabled();
   date();
   AOS.init();
+<<<<<<< HEAD
   reactive();
 
   // activeTarget();
   // timelineSwiper();
   // targetAnchor();
+=======
+  opacity();
+>>>>>>> baac33bbd9aa5b7cc537e8672c7ea2c150264ad0
   // Call your functions here, e.g:
   // initSelect2();
   // test();

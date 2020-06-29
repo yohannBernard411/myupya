@@ -1,4 +1,4 @@
-<div class="mybg-gradient">
+<div>
   <div class="container pt-5">
     <div class="row pt-5  myinformations">
       <div class="col-12">
@@ -23,6 +23,7 @@
 </div><br>
 
 <p id="data-cs" data-cs=<%= @current_step %> ></p>
+<<<<<<< HEAD
 <div class="containerSwiper" id="my_target">
   <div class="timelineSwiper">
     <div class="swiper-container">
@@ -39,6 +40,60 @@
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
       <div class="swiper-pagination"></div>
+=======
+<div class="containerSwiper ">
+    <div class="timelineSwiper">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <% for step in 0..6 %>
+                  <div class="swiper-slide test" style="background-image: url(https://res.cloudinary.com/ded9yhg1e/image/upload/v1593548475/bg1_vlh7jv.jpg" data-year="Step <%= step + 1 %>">
+                  <div class="row container-slider">
+                        <div class="col-3 ml-3 mr-5">
+                          <div class="card-product">
+                            <%= image_tag(@articles[step].image, class: "vignette") %>
+                            <div class=" mt-2 text-center">
+                              <h2 class="text-dark"><%= @articles[step].title[0..100] + "..." %></h2>
+                              <p class="text-justify text-dark card-content pr-3 pb-2"><%= @articles[step].content[0..120] + "..." %></p>
+                              <%= link_to "Voir", article_path(@articles[step].id), class: "my-button" %>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-3 mr-5">
+                          <div class="video-card text-center">
+                            <%= image_tag @videos[step].picture, class: "small_vignette" %>
+                            <h2 class="text-dark"><%= @steps[step].title %></h2>
+                            <p class="text-justify text-dark card-content pr-3 pb-2">Voici une vidéo explicative traitant du sujet : <%=  @steps[step].title %>  afin de vous permettre d’acquérir de nouvelles compétences qui serviront votre projet professionnel.</p>
+                            <%= link_to "Voir", video_path(@videos[step].id), class: "my-button" %>
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <div class="coach-card text-center">
+                            <%= image_tag(@coachs[step].photo_url, class: "small_vignette") %>
+                            <h2 class="text-dark"><%= @coachs[step].email %></h2>
+                            <p class="text-justify text-dark card-content pr-3 pb-2">Notre coach <%= @coachs[step].email %> vous accompagnera dans votre projet de reconversion professionnelle.
+professionnel</p>
+                            <%= link_to "Prendre rendez-vous", coach_path(@coachs[step].id), class: "my-button " %>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide-content">
+                          <span class="timeline-year">Step <%= step + 1 %></span>
+                          <h4 class="timeline-title"><%= @steps[step].title %></h4>
+                          <%= link_to "Valider ce step",  steps_up_path, class: "btn my-validate "%>
+                      </div>
+                       
+                      
+                  </div>
+                  
+                <% end %>
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+            
+        </div>
+        
+>>>>>>> baac33bbd9aa5b7cc537e8672c7ea2c150264ad0
     </div>
   </div>
 </div>

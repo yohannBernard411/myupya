@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .myinformations{
   font-size: 27px;
 }
@@ -14,6 +15,16 @@
   border-radius: 50%;
   border: solid 2px #fc9962;
 }
+=======
+h2 {
+  font-family: "Raleway", sans-serif !important;
+}
+
+body {
+  font-family: "Raleway", sans-serif !important;
+}
+
+>>>>>>> baac33bbd9aa5b7cc537e8672c7ea2c150264ad0
 .offsetanchor {
   margin: -80px;
   padding: 80px;
@@ -24,22 +35,27 @@
 }
 .my-validate {
   background-color: #45b37a !important;
-  box-shadow: 5px 5px 10px #45b37a !important;
+  color: white;
+  position: relative;
+  &:hover {
+    color: white;
+    transform: scale(1.1);
+    transition: 0.5s;
+  }
+  // box-shadow: 5px 5px 10px #45b37a !important;
 }
-.my-button {
-  margin-bottom: 20px;
-  border-radius: 20px;
+
+.container-slider .my-button {
+  border-radius: 8px;
   background-color: #fc9962;
   color: white;
-  box-shadow: 5px 5px 15px #fc9962;
+  padding: 6px 12px;
+  position: absolute;
+  bottom: 10px;
+  // box-shadow: 5px 5px 15px #fc9962;
   font-family: "Raleway", sans-serif;
 }
-.my-button:hover {
-  color: white;
-  transform: scale(1.1);
-  transition: 0.5s;
-  font-family: "Raleway", sans-serif;
-}
+
 .my-column {
   width: 100%;
   display: flex;
@@ -53,16 +69,37 @@
   padding: 20px;
   text-align: center;
 }
-.my-number {
+
+.my-number-box {
   color: white;
   // background-color: #FC9962;
-  height: 100%;
+  // height: 100%;
   padding: 40px 10px;
-  border-radius: 50px 0 0 50px;
+  border-radius: 5px 0 0 5px;
   margin: 0;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    bottom: 0;
+    background-color: green;
+    clip-path: polygon(100% 100%, 150% 100%, 150% 150%);
+    height: 100%;
+    width: 100%;
+  }
 }
+
+// .my-number {
+//   color: white;
+//   // background-color: #FC9962;
+//   height: 100%;
+//   padding: 40px 10px;
+//   // border-radius: 50px 0 0 50px;
+//   margin: 0;
+// }
 .my-shadow {
-  box-shadow: 5px 5px 15px rgb(49, 49, 49);
+  box-shadow: 5px 5px 15px lightgray;
   border-radius: 10px;
 }
 .mybg-gradient {
@@ -80,8 +117,7 @@
   float: left;
 }
 .small_vignette {
-  width: 250px;
-  height: auto;
+  width: 100%;
 }
 .bigvignette {
   width: 500px;
@@ -101,13 +137,9 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: white;
-}
 /* Set a background color */
 .subbody {
   background-color: white;
-  font-family: Helvetica, sans-serif;
 }
 
 /* The actual timeline (the vertical ruler) */
@@ -162,7 +194,7 @@ body {
   // background-color: #efefef;
   border-width: 4px;
   border-style: solid;
-  top: 15px;
+  top: 80px;
   border-radius: 50%;
   z-index: 1;
 }
@@ -187,9 +219,15 @@ body {
   // padding: 20px 30px;
   background-color: #efefef;
   position: relative;
-  border-radius: 50px;
+  border-radius: 5px;
   height: 100%;
+  box-shadow: 5px 5px 15px lightgray;
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+  }
 }
+
 .contentnone {
   padding: 20px 30px;
   background-color: transparent;
@@ -205,4 +243,124 @@ body {
   position: relative;
   background-color: inherit;
   height: 200px;
+}
+
+.content {
+  width: 100%;
+}
+
+.card-product {
+  overflow: hidden;
+  height: 355px;
+  z-index: 1;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin-top: 65%;
+  border-radius: 8px;
+  width: 363px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-product img {
+  height: 50%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0.7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  padding-left: 12px;
+}
+
+.my-button:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.video-card {
+  overflow: hidden;
+  height: 355px;
+  z-index: 1;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin-top: 65%;
+  border-radius: 8px;
+  width: 363px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.video-card img {
+  height: 56%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.video-card h2 {
+  font-size: 16px;
+  padding-top: 8px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.video-card p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0.7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  padding-left: 12px;
+}
+.coach-card {
+  overflow: hidden;
+  height: 355px;
+  z-index: 1;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin-top: 65%;
+  border-radius: 8px;
+  width: 363px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.coach-card img {
+  height: 50%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.coach-card h2 {
+  font-size: 16px;
+  padding-top: 8px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.coach-card p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0.7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  padding-left: 12px;
+}
+
+.card-product .my-button {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
 }

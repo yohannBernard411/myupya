@@ -161,7 +161,7 @@ function test(){
     };
     opning(open);
 
-    const numbers = document.querySelectorAll(".my-number");
+    const numbers = document.querySelectorAll(".my-number-box");
     let count = 0;
     numbers.forEach((element) => {
       element.style.backgroundColor = myColors[count];
