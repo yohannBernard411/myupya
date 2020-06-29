@@ -6,3 +6,28 @@ h1 {
 .bold {
   font-weight: bold;
 }
+
+.scroll .fas {
+  position: relative;
+  bottom: 20px;
+  font-size: 24px;
+  color: #fc9962;
+  animation-name: arrow;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes arrow {
+  0% {
+    position: relative;
+    bottom: 10px;
+  }
+  50% {
+    position: relative;
+    bottom: 20px;
+  }
+  100% {
+    position: relative;
+    bottom: 10px;
+  }
+}
