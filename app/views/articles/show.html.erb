@@ -6,5 +6,5 @@
   <% paragraphe.each_slice(3) do |phrase| %>
     <p class="text-justify"><%= phrase.join(" ") %></p><br>
   <% end %>
-  <%= link_to "Retour", steps_path(anchor: Step.find(current_user.step_id).position), class:"btn btn-show" %>
+  <%= link_to "Retour", steps_path(anchor: "my_target"), class:"btn btn-show" %>
 </div>
