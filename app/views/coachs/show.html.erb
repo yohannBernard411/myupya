@@ -1,22 +1,20 @@
-<div class="container">
-  <h1 class="text-center m-5"><%= @coach.email %></h1>
+<div class="container p-4">
+  <h1 class="p-5"><%= @coach.email + "@upya.fr" %></h1>
   <div class="row">
     <div class="col-6">
-
       <%= image_tag @coach.photo_url, class:"bigvignette" %>
-
     </div>
-    <div class="col-6">
-
+    <div class="col-6 text-center">
       <p>Choisissez votre date:</p>
-      <input type="date" class="datepicker m-3" name="name" required
+      <input type="date" id="my_date" class="datepicker m-3" name="name" required
             minlength="4" maxlength="8" size="10">
       <p>Prix: <%= humanized_money_with_symbol(@coach.price) %></p>
       <%= form_tag orders_path do %>
         <%= hidden_field_tag 'coach_id', @coach.id %>
-          <%= submit_tag 'Valider', class: 'btn btn-primary mb-5' %>
+        <%= hidden_field_tag 'date', @coach.id,id: "savedate" %>
+        <%= submit_tag 'Valider', class: 'btn my-button mb-5', id: "valid" %>
       <% end %>
-      <%= link_to "Retour", steps_path(anchor: Step.find(current_user.step_id).position), class:"btn btn-primary mb-5" %>
+      <%= link_to "Retour", steps_path(anchor: Step.find(current_user.step_id).position), class:"btn my-button mb-5" %>
     </div>
   </div>
 </div>
