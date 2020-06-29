@@ -31,7 +31,6 @@ import { test } from "../steps/index";
 
 // Internal imports, e.g:
 import { disabled } from "../components/_disabled_button";
-import { activebtn } from "../components/_active";
 import { date } from "../components/_date";
 
 import AOS from "aos";
@@ -40,7 +39,6 @@ import AOS from "aos";
 
 document.addEventListener("turbolinks:load", () => {
   disabled();
-  activebtn();
   date();
   AOS.init();
   // Call your functions here, e.g:

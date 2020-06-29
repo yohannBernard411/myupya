@@ -1,10 +1,8 @@
 <div class="bg-gradient">
   <div class="form swing-in-top-fwd">
     <p class=""><%= @question.title %></p>
-    <%= simple_form_for @question, url: (answers_path), method: :post do |f|%>
-      <%= f.collection_radio_buttons :choices, [[@question.choices[0].id, 'OUI'] ,[@question.choices[1].id, 'NON']], :first, :last %>   <br>
-      <%= f.submit value: 'Valider', class: 'button', id: 'button-question-form', disabled: true , data: { "disable-with": "Valider"} %>
-    <% end %>
+      <%= button_to 'OUI', {controller: "answers", action: "create", question: {choices: @question.choices[0]}} , method: :post, class: "btn my-button"  %>
+      <%= button_to 'NON', {controller: "answers", action: "create", question: {choices: @question.choices[1]}} , method: :post, class: "btn my-button"  %>
   </div>
 </div>
 
