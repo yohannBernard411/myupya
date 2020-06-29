@@ -1,4 +1,5 @@
 function test(){
+  console.log("verif stepindex");
   if (document.getElementById('data-cs')){
 
     const myColors = ["#F56871", "#74C1E2", "#FC9962", "#D08AF8", "#6AEEAA", "#AF6944", "#F78BD2"];
