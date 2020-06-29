@@ -1,3 +1,62 @@
+.offsetanchor{
+  margin: -80px;
+  padding: 80px;
+}
+.devise-bg{
+  width: 100vw;
+  height: 100vh !important;
+}
+.my-validate{
+  background-color: #45b37a !important;
+  box-shadow: 5px 5px 10px #45b37a !important;
+}
+.my-button{
+  margin-bottom: 20px;
+  border-radius: 20px;
+  background-color: #fc9962;
+  color: white;
+  font-weight: bold;
+  box-shadow: 5px 5px 15px #fc9962;
+}
+.my-button:hover{
+  color: white;
+  transform: scale(1.2);
+  font-weight: lighter;
+}
+.my-column{
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.my-subtitle{
+  justify-self: center;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+}
+.my-number{
+  color: white;
+  // background-color: #FC9962;
+  height: 100%;
+  padding: 40px 10px;
+  border-radius: 50px 0 0 50px;
+  margin: 0;
+}
+.my-shadow{
+  box-shadow: 5px 5px 15px rgb(49, 49, 49);
+  border-radius: 10px;
+}
+.mybg-gradient {
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 228, 139, 1) 100%
+  );
+  padding-bottom: 50px;
+}
 .vignette {
   width: auto;
   height: 80px;
@@ -10,6 +69,8 @@
 .bigvignette{
   width: 500px;
   height: auto;
+  border-radius: 10px;
+  box-shadow: 10px 5px 5px gray;
 }
 .smallpicture{
   width: 100px;
@@ -17,9 +78,6 @@
 }
 .para{
   width: 450px;
-}
-.containermine{
-  margin-left: 0;
 }
 
 * {
@@ -31,7 +89,7 @@ body {
 }
 /* Set a background color */
 .subbody {
-  background-color: #474e5d;
+  background-color: white;
   font-family: Helvetica, sans-serif;
 }
 
@@ -40,6 +98,8 @@ body {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
+  margin-top: -35px;
+  padding-top: 50px;
 }
 
 /* The actual timeline (the vertical ruler) */
@@ -47,7 +107,7 @@ body {
   content: "";
   position: absolute;
   width: 6px;
-  background-color: white;
+  background-color: rgba(255, 228, 139, 1);
   top: 0;
   bottom: 0;
   left: 50%;
@@ -58,23 +118,38 @@ body {
 .containermine {
   padding: 10px 40px;
   position: relative;
-  background-color: inherit;
   width: 50%;
 }
 
 /* The circles on the timeline */
-.containermine::after {
-  content: '';
-  position: absolute;
+  .petitrond{
+  content: "";
+  position: relative;
+  left: calc( 50% - 12px );
   width: 25px;
   height: 25px;
-  right: -10px;
-  background-color: white;
-  border: 4px solid #FF9F55;
+  background-color: #EFEFEF;
+  border-width: 4px;
+  border-style: solid;
+  // border-color: var(--main-color[2]);
   top: 15px;
   border-radius: 50%;
   z-index: 1;
 }
+.petitrondfixe{
+  content: "";
+  position: relative;
+  left: calc( 50% - 12px );
+  width: 25px;
+  height: 25px;
+  background-color: #EFEFEF;
+  border-width: 4px;
+  border-style: solid;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
 /* Place the container to the left */
 .left {
   left: 0;
@@ -85,34 +160,6 @@ body {
   left: 50%;
 }
 
-/* Add arrows to the left container (pointing right) */
-.left::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  right: 30px;
-  border: medium solid white;
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent white;
-}
-
-/* Add arrows to the right container (pointing left) */
-.right::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  left: 30px;
-  border: medium solid white;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent white transparent transparent;
-}
-
 /* Fix the circle for containers on the right side */
 .right::after {
   left: -16px;
@@ -120,10 +167,10 @@ body {
 
 /* The actual content */
 .content {
-  padding: 20px 30px;
-  background-color: white;
+  // padding: 20px 30px;
+  background-color: #EFEFEF;
   position: relative;
-  border-radius: 6px;
+  border-radius: 50px;
   height: 100%;
 }
 .contentnone {
@@ -142,4 +189,3 @@ body {
   background-color: inherit;
   height: 200px;
 }
-

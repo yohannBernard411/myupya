@@ -1,8 +1,9 @@
 class OrdersController < ApplicationController
 
   def create
+    date = params[:date]
     coach = Coach.find(params[:coach_id])
-    order  = Order.create!(coach: coach, amount: coach.price, state: 'pending', user: current_user)
+    order  = Order.create!(coach: coach, amount: coach.price, state: 'pending', user: current_user, date: date)
   
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
@@ -23,6 +24,8 @@ class OrdersController < ApplicationController
 
   def show
     @order = current_user.orders.find(params[:id])
+    months = ["Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Decembre"]
+    @month = months[@order.date.split("-")[1].to_i - 1]
   end
 
 

@@ -1,9 +1,10 @@
 function test(){
   if (document.getElementById('data-cs')){
 
+    const myColors = ["#F56871", "#74C1E2", "#FC9962", "#D08AF8", "#6AEEAA", "#AF6944", "#F78BD2"];
     const currentStep = document.getElementById('data-cs');
     const currentStepId = currentStep.dataset.cs;
-    const open = [currentStepId];
+    const open = [parseInt(currentStepId, 10)];
     const all = [1, 2, 3, 4, 5, 6, 7];
 
     all.forEach(function(rank){
@@ -20,7 +21,6 @@ function test(){
       }  
     });
 
-
     all.forEach(function(rank){
       const button = document.getElementById("clickclose"+rank);
       if (button){
@@ -30,7 +30,10 @@ function test(){
 
     function addopenclass(){
       const here = parseInt(this.value, 10);
-      open.push(here);
+      if (!open.includes(here)){
+        open.push(here);
+      }
+      closing(all);
       opning(open);
     }
 
@@ -43,7 +46,7 @@ function test(){
 
     function addcloseclass(){
       const here = parseInt(this.value, 10);
-      const index = open.indexOf(element => element === here);
+      const index = open.indexOf(here);
       open.splice(index, 1);
       closing(all);
       opning(open);
@@ -71,7 +74,13 @@ function test(){
         coach.classList.remove("d-block");
         coach.classList.add("d-none");
         offsetbottom.classList.remove("d-block");
-        offsetbottom.classList.add("d-none")
+        offsetbottom.classList.add("d-none");
+        const allpetitronds = document.querySelectorAll(".petitrond");
+        allpetitronds.forEach((element) => {
+          if (!all.includes(element.dataset.color))
+          element.style.display = "none";
+        })
+
       });
     }
 
@@ -102,6 +111,18 @@ function test(){
         video.classList.add("d-block");
         coach.classList.remove("d-none");
         coach.classList.add("d-block");
+        const myrank =  `data-color=${rank-1}`;
+        article.insertAdjacentHTML("beforebegin", `<div class='petitrond' ${myrank}></div>`);
+        video.insertAdjacentHTML("beforebegin", `<div class="petitrond" ${myrank}></div>`);
+        coach.insertAdjacentHTML("beforebegin", `<div class="petitrond" ${myrank}></div>`);
+        const allpetitronds = document.querySelectorAll(".petitrond");
+        allpetitronds.forEach((element) => {
+          element.style.borderColor = myColors[element.dataset.color];
+        });
+        const allpetitrondfixes = document.querySelectorAll(".petitrondfixe");
+        allpetitrondfixes.forEach((element) => {
+          element.style.borderColor = myColors[element.dataset.color];
+        })
       },
 
       function opning(open){
@@ -132,8 +153,20 @@ function test(){
         });
       });
     };
-    
     opning(open);
+
+    const numbers = document.querySelectorAll(".my-number");
+    let count = 0;
+    numbers.forEach((element) => {
+      element.style.backgroundColor = myColors[count];
+      count += 1;
+    });
+
+    const petitronds = document.querySelectorAll(".petitrond");
+    count = 0;
+    petitronds.forEach((element) => {
+      element.style.borderColor = myColors[element.dataset.color];
+    });
 
   };
 };
