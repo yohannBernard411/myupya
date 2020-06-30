@@ -14,7 +14,13 @@ const activeclass = () => {
   if (currentdir == "steps"){
     parcours.classList.add("active");
   }
-
+  if (currentdir == "coachs"){
+    parcours.classList.add("active");
+  }
+  if (currentdir == "orders"){
+    parcours.classList.add("active");
+  }
+  
 }
   
 export { activeclass }
