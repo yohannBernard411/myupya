@@ -16,22 +16,18 @@ body {
 }
 .my-validate {
   background-color: #45b37a !important;
+  position: relative;
   // box-shadow: 5px 5px 10px #45b37a !important;
 }
 .my-button {
-  margin-bottom: 20px;
-  border-radius: 20px;
+  border-radius: 8px;
   background-color: #fc9962;
   color: white;
+  padding: 6px 12px;
   // box-shadow: 5px 5px 15px #fc9962;
   font-family: "Raleway", sans-serif;
 }
-.my-button:hover {
-  color: white;
-  transform: scale(1.1);
-  transition: 0.5s;
-  font-family: "Raleway", sans-serif;
-}
+
 .my-column {
   width: 100%;
   display: flex;
@@ -54,16 +50,16 @@ body {
   border-radius: 5px 0 0 5px;
   margin: 0;
   position: relative;
-&:before {
-  content: "";
-  position: absolute;
-  left: 10px;
-  bottom: 0;
-  background-color: green;
-  clip-path: polygon(100% 100%, 150% 100%, 150% 150%);
-  height: 100%;
-  width: 100%;
-}
+  &:before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    bottom: 0;
+    background-color: green;
+    clip-path: polygon(100% 100%, 150% 100%, 150% 150%);
+    height: 100%;
+    width: 100%;
+  }
 }
 
 // .my-number {
@@ -198,13 +194,12 @@ body {
   position: relative;
   border-radius: 5px;
   height: 100%;
-  box-shadow: 5px 5px 15px lightgray;;
+  box-shadow: 5px 5px 15px lightgray;
   &:hover {
-  transform: scale(1.1);
-  transition: 0.5s;
+    transform: scale(1.1);
+    transition: 0.5s;
   }
 }
-
 
 .contentnone {
   padding: 20px 30px;
@@ -221,4 +216,45 @@ body {
   position: relative;
   background-color: inherit;
   height: 200px;
+}
+
+.content {
+  width: 100%;
+}
+
+.card-product {
+  overflow: hidden;
+  height: 190px;
+  z-index: 1;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  margin-top: 65%;
+  border-radius: 8px;
+  width: 380px;
+}
+
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0.7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product-infos {
+  height: 100%;
 }
