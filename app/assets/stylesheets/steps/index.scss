@@ -107,11 +107,11 @@ body {
 .timeline::after {
   content: "";
   position: absolute;
-  width: 6px;
+  width: 3px;
   background-color: rgba(255, 228, 139, 1);
   top: 0;
   bottom: 0;
-  left: 50%;
+  left: 0%;
   margin-left: -3px;
 }
 
@@ -126,10 +126,10 @@ body {
 .petitrond {
   content: "";
   position: relative;
-  left: calc(50% - 12px);
-  width: 25px;
-  height: 25px;
-  background-color: #efefef;
+  left: -0.75%;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
   border-width: 4px;
   border-style: solid;
   // border-color: var(--main-color[2]);
@@ -140,10 +140,10 @@ body {
 .petitrondfixe {
   content: "";
   position: relative;
-  left: calc(50% - 12px);
+  left: -1.2%;
   width: 25px;
   height: 25px;
-  background-color: #efefef;
+  // background-color: #efefef;
   border-width: 4px;
   border-style: solid;
   top: 15px;
