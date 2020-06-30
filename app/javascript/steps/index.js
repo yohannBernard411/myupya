@@ -19,7 +19,7 @@ function test(){
       const button = document.getElementById("clickopen"+rank);
       if (button){
         button.addEventListener("click", addopenclass, false);
-      }  
+      }
     });
 
     all.forEach(function(rank){
@@ -42,7 +42,7 @@ function test(){
       const button = document.getElementById("clickclose"+rank);
       if (button){
         button.addEventListener("click", addcloseclass, false);
-      }  
+      }
     });
 
     function addcloseclass(){
@@ -123,6 +123,7 @@ function test(){
         const allpetitrondfixes = document.querySelectorAll(".petitrondfixe");
         allpetitrondfixes.forEach((element) => {
           element.style.borderColor = myColors[element.dataset.color];
+          element.style.backgroundColor = myColors[element.dataset.color];
         })
       },
 
