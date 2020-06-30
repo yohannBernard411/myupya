@@ -1,4 +1,4 @@
-
+const initTimeLine = () => {
   var timelineSwiper = new Swiper(".timelineSwiper .swiper-container", {
     initialSlide: document.location.toString().split("#")[1],
     direction: "vertical",
@@ -21,10 +21,12 @@
       prevEl: ".swiper-button-prev",
     },
   });
-
-  function reactive(){
-    timelineSwiper.slideTo(document.cookie[document.cookie.length-1]-1, 1600, true);
+  if (document.getElementById('data-cs')){
+    const currentStep = document.getElementById('data-cs');
+    const currentStepId = currentStep.dataset.cs;
+    const currentStepValue = [parseInt(currentStepId, 10)];
+    timelineSwiper.slideTo(currentStepValue-1, 1600, true);
   }
+}
 
-export { timelineSwiper };
-export { reactive };
+export { initTimeLine };

@@ -33,7 +33,7 @@ import { test } from "../steps/index";
 import { disabled } from "../components/_disabled_button";
 import { date } from "../components/_date";
 import { timelineSwiper } from "../components/_swiper";
-import { reactive } from "../components/_swiper";
+import { initTimeLine } from "../components/_swiper";
 // import { activeTarget } from "../components/_swiper";
 // import { targetAnchor } from "../components/_swiper";
 import AOS from "aos";
@@ -45,7 +45,7 @@ document.addEventListener("turbolinks:load", () => {
   disabled();
   date();
   AOS.init();
-  reactive();
+  initTimeLine();
 
   // activeTarget();
   // timelineSwiper();
