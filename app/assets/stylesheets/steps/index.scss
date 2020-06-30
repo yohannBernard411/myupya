@@ -1,42 +1,43 @@
-.offsetanchor{
+.offsetanchor {
   margin: -80px;
   padding: 80px;
 }
-.devise-bg{
+.devise-bg {
   width: 100vw;
   height: 100vh !important;
 }
-.my-validate{
+.my-validate {
   background-color: #45b37a !important;
   box-shadow: 5px 5px 10px #45b37a !important;
 }
-.my-button{
+.my-button {
   margin-bottom: 20px;
   border-radius: 20px;
   background-color: #fc9962;
   color: white;
-  font-weight: bold;
   box-shadow: 5px 5px 15px #fc9962;
+  font-family: "Raleway", sans-serif;
 }
-.my-button:hover{
+.my-button:hover {
   color: white;
-  transform: scale(1.2);
-  font-weight: lighter;
+  transform: scale(1.1);
+  transition: 0.5s;
+  font-family: "Raleway", sans-serif;
 }
-.my-column{
+.my-column {
   width: 100%;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
   align-items: center;
 }
-.my-subtitle{
+.my-subtitle {
   justify-self: center;
   width: 100%;
   padding: 20px;
   text-align: center;
 }
-.my-number{
+.my-number {
   color: white;
   // background-color: #FC9962;
   height: 100%;
@@ -44,7 +45,7 @@
   border-radius: 50px 0 0 50px;
   margin: 0;
 }
-.my-shadow{
+.my-shadow {
   box-shadow: 5px 5px 15px rgb(49, 49, 49);
   border-radius: 10px;
 }
@@ -66,17 +67,17 @@
   width: 250px;
   height: auto;
 }
-.bigvignette{
+.bigvignette {
   width: 500px;
   height: auto;
   border-radius: 10px;
   box-shadow: 10px 5px 5px gray;
 }
-.smallpicture{
+.smallpicture {
   width: 100px;
   height: 40px;
 }
-.para{
+.para {
   width: 450px;
 }
 
@@ -122,13 +123,13 @@ body {
 }
 
 /* The circles on the timeline */
-  .petitrond{
+.petitrond {
   content: "";
   position: relative;
-  left: calc( 50% - 12px );
+  left: calc(50% - 12px);
   width: 25px;
   height: 25px;
-  background-color: #EFEFEF;
+  background-color: #efefef;
   border-width: 4px;
   border-style: solid;
   // border-color: var(--main-color[2]);
@@ -136,13 +137,13 @@ body {
   border-radius: 50%;
   z-index: 1;
 }
-.petitrondfixe{
+.petitrondfixe {
   content: "";
   position: relative;
-  left: calc( 50% - 12px );
+  left: calc(50% - 12px);
   width: 25px;
   height: 25px;
-  background-color: #EFEFEF;
+  background-color: #efefef;
   border-width: 4px;
   border-style: solid;
   top: 15px;
@@ -168,7 +169,7 @@ body {
 /* The actual content */
 .content {
   // padding: 20px 30px;
-  background-color: #EFEFEF;
+  background-color: #efefef;
   position: relative;
   border-radius: 50px;
   height: 100%;
