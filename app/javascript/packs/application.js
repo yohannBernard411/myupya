@@ -32,6 +32,7 @@ import { test } from "../steps/index";
 // Internal imports, e.g:
 import { disabled } from "../components/_disabled_button";
 import { date } from "../components/_date";
+import { activeclass } from "../components/_navbaractive";
 import { timelineSwiper } from "../components/_swiper";
 import { initTimeLine } from "../components/_swiper";
 // import { activeTarget } from "../components/_swiper";
@@ -48,6 +49,7 @@ document.addEventListener("turbolinks:load", () => {
   AOS.init();
   initTimeLine();
   scrolltop();
+  activeclass();
   // activeTarget();
   // timelineSwiper();
   // targetAnchor();
@@ -56,3 +58,4 @@ document.addEventListener("turbolinks:load", () => {
   // initSelect2();
   // test();
 });
+
