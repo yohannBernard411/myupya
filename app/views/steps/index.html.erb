@@ -1,26 +1,4 @@
-<div>
-  <div class="container pt-5">
-    <div class="row pt-5  myinformations">
-      <div class="col-12">
-        <h1 class="text-center mb-5">Mon parcours personnalisé</h1><br>
-      </div><br>
-      <div class="col-3">
-        <div>
-          <%#= image_tag current_user.photo_url, class:"myavatar" %>
-        </div>
-      </div>
-      <div class="col-9">
-        <p class="mb-5"><%= current_user.name %></p>
-        <p class="mb-5">Step en cours</p>
-        <div class="mysurroundcircle text-center float-right"><%= @current_step %></div>
-        <p class="mb-5">Mon avancement projet pro</p>
-        <div class="progress my-5 my-shadow">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow=<%= (@current_step * 14.2857142857 - 14.2857142857).to_s %> aria-valuemin="0" aria-valuemax="100" style="width: <%= (@current_step * 14.2857142857 - 14.2857142857).to_s %>%"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div><br>
+
 
 <p id="data-cs" data-cs=<%= @current_step %> ></p>
 
@@ -29,9 +7,12 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <% for step in 0..6 %>
-                  <div class="swiper-slide test" style="background-image: url(<%= @steps[step].background %>" data-year="Step <%= step + 1 %>">)
+                  <div class="swiper-slide test" style="background-image: url(<%= @steps[step].background %>" data-year="Step <%= step + 1 %>">
                   <div class="row pt-5 container-slider">
-                        <div class="col-3 ml-3 mr-5">
+                  <div>
+                    <div class="progress-bar  progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow=<%= (@current_step * 14.2857142857 - 14.2857142857).to_s %> aria-valuemin="0" aria-valuemax="100" style="width: <%= (@current_step * 14.2857142857 - 14.2857142857).to_s %>%"></div>
+                  </div>
+                        <div class="col-3 ml-3 mr-5 mt-4">
                           <div class="card-product">
                             <%= image_tag(@articles[step].image, class: "vignette") %>
                             <div class=" mt-2 text-center">
