@@ -1,10 +1,16 @@
 <div class="container">
-  <h1 class="p-5"><%= @article.title %></h1>
-  <%= image_tag @article.image, class:"vignette bigvignette mr-5 mb-5" %>
-  <% paragraphe = @article.content.split(".") %>
-  <% paragraphe.map! { |ligne| ligne + "."} %>
-  <% paragraphe.each_slice(3) do |phrase| %>
-    <p class="text-justify"><%= phrase.join(" ") %></p><br>
-  <% end %>
+  <div class="container text-center">
+    <h1 class="p-5"><%= @article.title %></h1>
+  </div>
+  <div class="container-fluid banner">
+    <%= image_tag @article.image %>
+  </div>
+  <div class="container">
+    <% paragraphe = @article.content.split(".") %>
+    <% paragraphe.map! { |ligne| ligne + "."} %>
+    <% paragraphe.each_slice(3) do |phrase| %>
+      <p class="text-justify"><%= phrase.join(" ") %></p><br>
+    <% end %>
+  </div>
   <%= link_to "Retour", steps_path(anchor: "my_target"), class:"btn btn-show" %>
 </div>
