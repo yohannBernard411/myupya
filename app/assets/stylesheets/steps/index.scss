@@ -1,12 +1,12 @@
-.myinformations{
+.myinformations {
   font-size: 27px;
 }
-.myavatar{
+.myavatar {
   border-radius: 50%;
   width: 160px;
   height: 160px;
 }
-.mysurroundcircle{
+.mysurroundcircle {
   margin-top: -70px;
   line-height: 25px;
   width: 35px;
@@ -360,4 +360,25 @@ body {
   position: absolute;
   bottom: 10px;
   left: 50%;
+}
+
+.progress-bar {
+  height: 10px;
+  position: absolute;
+  left: 20%;
+  top: 5%;
+  background: #fdc830; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to left,
+    #f37335,
+    #fdc830
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #f37335,
+    #fdc830
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border-radius: 12px;
+  box-shadow: 5px 1px 20px #fc9962;
 }
