@@ -2,8 +2,8 @@
   <div class="form swing-in-top-fwd">
     <p class=""><%= @question.title %></p>
     <div class="d-inline-flex">
-      <%= button_to 'OUI', {controller: "answers", action: "create", question: {choices: @question.choices[0]}} , method: :post, class: "btn my-button m-5"  %>
-      <%= button_to 'NON', {controller: "answers", action: "create", question: {choices: @question.choices[1]}} , method: :post, class: "btn my-button m-5"  %>
+      <%= button_to 'OUI', {controller: "answers", action: "create", question: {choices: @question.choices[0]}} , method: :post, class: "btn btn-show m-5"  %>
+      <%= button_to 'NON', {controller: "answers", action: "create", question: {choices: @question.choices[1]}} , method: :post, class: "btn btn-show m-5"  %>
     </div>
  </div>
 </div>

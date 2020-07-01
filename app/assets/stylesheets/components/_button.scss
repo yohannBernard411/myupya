@@ -46,3 +46,17 @@ label {
   background-color: #fc9962;
   opacity: 1;
 }
+
+.btn-show {
+  border-radius: 8px;
+  background-color: #fc9962;
+  color: white;
+  padding: 6px 12px;
+  // box-shadow: 5px 5px 15px #fc9962;
+  font-family: "Raleway", sans-serif;
+  &:hover {
+    color: white;
+    transform: scale(1.1);
+    transition: 0.5s;
+  }
+}

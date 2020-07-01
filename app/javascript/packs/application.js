@@ -45,15 +45,12 @@ document.addEventListener("turbolinks:load", () => {
   disabled();
   date();
   AOS.init();
-<<<<<<< HEAD
   reactive();
 
   // activeTarget();
   // timelineSwiper();
   // targetAnchor();
-=======
-  opacity();
->>>>>>> baac33bbd9aa5b7cc537e8672c7ea2c150264ad0
+  // opacity();
   // Call your functions here, e.g:
   // initSelect2();
   // test();
