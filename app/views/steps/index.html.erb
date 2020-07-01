@@ -1,10 +1,19 @@
 <div>
   <div class="container pt-5">
-    <div class="row pt-5">
+    <div class="row pt-5  myinformations">
       <div class="col-12">
-        <h1 class="text-center">Mes contenus</h1>
-        <p>Ma progression:</p>
-        <p class="d-inline"><strong>Etape </p><p class="d-inline" ><%= @current_step %></strong></p>
+        <h1 class="text-center mb-5">Mon parcours personnalisé</h1><br>
+      </div><br>
+      <div class="col-3">
+        <div>
+          <%= image_tag current_user.photo_url, class:"myavatar" %>
+        </div>
+      </div>
+      <div class="col-9">
+        <p class="mb-5"><%= current_user.name %></p>
+        <p class="mb-5">Step en cours</p>
+        <div class="mysurroundcircle text-center float-right"><%= @current_step %></div>
+        <p class="mb-5">Mon avancement projet pro</p>
         <div class="progress my-5 my-shadow">
           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow=<%= (@current_step * 14.2857142857 - 14.2857142857).to_s %> aria-valuemin="0" aria-valuemax="100" style="width: <%= (@current_step * 14.2857142857 - 14.2857142857).to_s %>%"></div>
         </div>
@@ -14,7 +23,8 @@
 </div><br>
 
 <p id="data-cs" data-cs=<%= @current_step %> ></p>
-<div class="containerSwiper ">
+
+<div class="containerSwiper id="my_target">
     <div class="timelineSwiper">
         <div class="swiper-container">
             <div class="swiper-wrapper">
@@ -67,10 +77,5 @@ professionnel</p>
         </div>
 
     </div>
-</div>
-
-
-
-
   </div>
 </div>
