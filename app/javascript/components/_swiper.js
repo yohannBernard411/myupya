@@ -23,7 +23,7 @@
   });
 
   function reactive(){
-    timelineSwiper.slideTo(document.cookie[document.cookie.length-1], 1600, true);
+    timelineSwiper.slideTo(document.cookie[document.cookie.length-1]-1, 1600, true);
   }
 
 export { timelineSwiper };
