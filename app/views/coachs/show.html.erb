@@ -14,7 +14,7 @@
         <%= hidden_field_tag 'date', @coach.id,id: "savedate" %>
         <%= submit_tag 'Valider', class: 'btn my-button mb-5', id: "valid" %>
       <% end %>
-      <%= link_to "Retour", steps_path(anchor: Step.find(current_user.step_id).position), class:"btn my-button mb-5" %>
+      <%= link_to "Retour", steps_path(anchor: Step.find(current_user.step_id).position), class:"btn btn-show mb-5" %>
     </div>
   </div>
 </div>

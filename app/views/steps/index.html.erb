@@ -6,7 +6,7 @@
       </div><br>
       <div class="col-3">
         <div>
-          <%= image_tag current_user.photo_url, class:"myavatar" %>
+          <%#= image_tag current_user.photo_url, class:"myavatar" %>
         </div>
       </div>
       <div class="col-9">
@@ -24,12 +24,12 @@
 
 <p id="data-cs" data-cs=<%= @current_step %> ></p>
 
-<div class="containerSwiper id="my_target">
+<div class="containerSwiper" id="my_target">
     <div class="timelineSwiper">
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <% for step in 0..6 %>
-                  <div class="swiper-slide test" style="background-image: url(https://res.cloudinary.com/ded9yhg1e/image/upload/v1593548475/bg1_vlh7jv.jpg" data-year="Step <%= step + 1 %>">
+                  <div class="swiper-slide test" style="background-image: url(<%= @steps[step].background %>" data-year="Step <%= step + 1 %>">)
                   <div class="row pt-5 container-slider">
                         <div class="col-3 ml-3 mr-5">
                           <div class="card-product">
