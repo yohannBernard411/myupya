@@ -1,10 +1,19 @@
 <div>
   <div class="container pt-5">
-    <div class="row pt-5">
+    <div class="row pt-5  myinformations">
       <div class="col-12">
-        <h1 class="text-center">Mes contenus</h1>
-        <p>Ma progression:</p>
-        <p class="d-inline"><strong>Etape </p><p class="d-inline" ><%= @current_step %></strong></p>
+        <h1 class="text-center mb-5">Mon parcours personnalisé</h1><br>
+      </div><br>
+      <div class="col-3">
+        <div>
+          <%= image_tag current_user.photo_url, class:"myavatar" %>
+        </div>
+      </div>
+      <div class="col-9">
+        <p class="mb-5"><%= current_user.name %></p>
+        <p class="mb-5">Step en cours</p>
+        <div class="mysurroundcircle text-center float-right"><%= @current_step %></div>
+        <p class="mb-5">Mon avancement projet pro</p>
         <div class="progress my-5 my-shadow">
           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow=<%= (@current_step * 14.2857142857 - 14.2857142857).to_s %> aria-valuemin="0" aria-valuemax="100" style="width: <%= (@current_step * 14.2857142857 - 14.2857142857).to_s %>%"></div>
         </div>
@@ -14,6 +23,24 @@
 </div><br>
 
 <p id="data-cs" data-cs=<%= @current_step %> ></p>
+<<<<<<< HEAD
+<div class="containerSwiper" id="my_target">
+  <div class="timelineSwiper">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <% for step in 0..6 %>
+          <div id=<%= step+1 %> class="swiper-slide" style="background-image: url(<%= @stepurl[step] %>" data-year="Step <%= step + 1 %>">
+            <div class="swiper-slide-content"><span class="timeline-year">Step <%= step + 1 %></span>
+              <h4 class="timeline-title"><%= @steps[step].title %></h4>
+              <p class="timeline-text">Lorem ipsum dolor site amet, consectetur adipscing elit, sed do eisumod tempor incididut ut labore et dolore magna aliqua. Ut enim ad mimim venjam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-pagination"></div>
+=======
 <div class="containerSwiper ">
     <div class="timelineSwiper">
         <div class="swiper-container">
@@ -66,11 +93,7 @@ professionnel</p>
             
         </div>
         
+>>>>>>> baac33bbd9aa5b7cc537e8672c7ea2c150264ad0
     </div>
-</div>
-
-
-
-
   </div>
 </div>
