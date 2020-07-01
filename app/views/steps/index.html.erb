@@ -44,7 +44,7 @@ professionnel</p>
                       <div class="swiper-slide-content">
                           <span class="timeline-year">Step <%= step + 1 %></span>
                           <h4 class="timeline-title"><%= @steps[step].title %></h4>
-                          <% if @current_step == step %>
+                          <% if @current_step - 1 == step %>
                             <%= link_to "Valider ce step",  steps_up_path, class: "btn my-validate "%>
                           <% end %>
                       </div>
