@@ -363,22 +363,5 @@ body {
 }
 
 .progress-bar {
-  height: 10px;
-  position: absolute;
-  left: 20%;
-  top: 5%;
-  background: #fdc830; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to left,
-    #f37335,
-    #fdc830
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to left,
-    #f37335,
-    #fdc830
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-radius: 12px;
-  box-shadow: 5px 1px 20px #fc9962;
+  background-color: #fdc830;
 }
