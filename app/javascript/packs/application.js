@@ -34,6 +34,7 @@ import { disabled } from "../components/_disabled_button";
 import { date } from "../components/_date";
 import { timelineSwiper } from "../components/_swiper";
 import AOS from "aos";
+import { opacity } from "../components/_myeffect";
 
 // import { initSelect2 } from '../components/init_select2';
 
@@ -41,7 +42,7 @@ document.addEventListener("turbolinks:load", () => {
   disabled();
   date();
   AOS.init();
-
+  opacity();
   // Call your functions here, e.g:
   // initSelect2();
   // test();
