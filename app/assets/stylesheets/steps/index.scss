@@ -16,14 +16,23 @@ body {
 }
 .my-validate {
   background-color: #45b37a !important;
+  color: white;
   position: relative;
+  &:hover {
+    color: white;
+    transform: scale(1.1);
+    transition: 0.5s;
+  }
   // box-shadow: 5px 5px 10px #45b37a !important;
 }
-.my-button {
+
+.container-slider .my-button {
   border-radius: 8px;
   background-color: #fc9962;
   color: white;
   padding: 6px 12px;
+  position: absolute;
+  bottom: 10px;
   // box-shadow: 5px 5px 15px #fc9962;
   font-family: "Raleway", sans-serif;
 }
@@ -89,8 +98,7 @@ body {
   float: left;
 }
 .small_vignette {
-  width: 250px;
-  height: auto;
+  width: 100%;
 }
 .bigvignette {
   width: 500px;
@@ -224,20 +232,20 @@ body {
 
 .card-product {
   overflow: hidden;
-  height: 190px;
+  height: 355px;
   z-index: 1;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
   margin-top: 65%;
   border-radius: 8px;
-  width: 380px;
+  width: 363px;
+  display: flex;
+  flex-direction: column;
 }
 
 .card-product img {
-  height: 100%;
-  width: 120px;
+  height: 50%;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -248,13 +256,92 @@ body {
 }
 
 .card-product p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
   opacity: 0.7;
   margin-bottom: 0;
   margin-top: 8px;
+  padding-left: 12px;
 }
 
-.card-product-infos {
-  height: 100%;
+.my-button:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.video-card {
+  overflow: hidden;
+  height: 355px;
+  z-index: 1;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin-top: 65%;
+  border-radius: 8px;
+  width: 363px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.video-card img {
+  height: 56%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.video-card h2 {
+  font-size: 16px;
+  padding-top: 8px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.video-card p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0.7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  padding-left: 12px;
+}
+.coach-card {
+  overflow: hidden;
+  height: 355px;
+  z-index: 1;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  margin-top: 65%;
+  border-radius: 8px;
+  width: 363px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.coach-card img {
+  height: 50%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.coach-card h2 {
+  font-size: 16px;
+  padding-top: 8px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.coach-card p {
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0.7;
+  margin-bottom: 0;
+  margin-top: 8px;
+  padding-left: 12px;
+}
+
+.card-product .my-button {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
 }
