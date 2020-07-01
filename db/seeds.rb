@@ -13,13 +13,13 @@ Step.destroy_all
 
 # steps
 puts "> Creating all the steps !"
-step1 = Step.create!(position: 1, title: "BILAN PROFESSIONNEL", background: "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593548475/bg1_vlh7jv.jpg")
-step2 = Step.create!(position: 2, title: "VALIDATION PROJET PROFESSIONNEL", background: "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593548474/bg2_kvxzna.jpg")
-step3 = Step.create!(position: 3, title: "CHOIX FORMATION & FINANCEMENT", background: "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593548495/bg3_n43dnh.jpg")
-step4 = Step.create!(position: 4, title: "INSCRIPTION FORMATION & SELECTION CANDIDAT", background: "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593548361/bg4_xa7p5c.jpg")
-step5 = Step.create!(position: 5, title: "INTEGRATION & SUIVI DE FORMATION", background: "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593588308/felicia-buitenwerf-Qs_Zkak27Jk-unsplash_f9wzor.jpg")
-step6 = Step.create!(position: 6, title: "RECHERCHES OPPORTUNITÉS PRO POST FORMATION", background: "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593548427/bg6_i9lqsy.jpg")
-step7 = Step.create!(position: 7, title: "INTEGRATION EN ENTREPRISE & FORMATION CONTINUE", background: "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593548430/bg7_uffm0s.jpg")
+step1 = Step.create!(position: 1, title: "BILAN PROFESSIONNEL", background: "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593610440/bg1a_tfkpak.jpg")
+step2 = Step.create!(position: 2, title: "VALIDATION PROJET PROFESSIONNEL", background: "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593610440/bg2a_hlwmjf.jpg")
+step3 = Step.create!(position: 3, title: "CHOIX FORMATION & FINANCEMENT", background: "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593610440/bg3a_kp2vdw.jpg")
+step4 = Step.create!(position: 4, title: "INSCRIPTION FORMATION & SELECTION CANDIDAT", background: "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593610440/bg4a_ivlvsp.jpg")
+step5 = Step.create!(position: 5, title: "INTEGRATION & SUIVI DE FORMATION", background: "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593610440/bg5a_pcx7lj.jpg")
+step6 = Step.create!(position: 6, title: "RECHERCHES OPPORTUNITÉS PRO POST FORMATION", background: "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593610440/bg6a_xjenx9.jpg")
+step7 = Step.create!(position: 7, title: "INTEGRATION EN ENTREPRISE & FORMATION CONTINUE", background: "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593610440/bg7a_a731hd.jpg")
 step8 = Step.create!(position: 8, title: "Félicitations ! Vous avez finalisé votre reconversion professionnelle !") # Use this step to moving forward into the form
 puts "> All the steps are created !"
 
