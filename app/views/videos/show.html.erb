@@ -1,10 +1,10 @@
 <div class="container">
-  <h1 class="p-5 ml-5">Video</h1>
-  <div class="p-5">
+  <h1 class="text-center p-5"><%= @step.title %></h1>
+  <div class="video-content p-5">
     <iframe width="956" height="538" src=<%= @video.url %>
     frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;
       picture-in-picture" allowfullscreen></iframe>
+    <%= link_to "Retour", steps_path(anchor: Step.find(current_user.step_id).position), class:"btn btn-show mb-5" %>
+
   </div>
-  <h2 class="text-center"><%= @step.title %></h2>
-  <%= link_to "Retour", steps_path(anchor: Step.find(current_user.step_id).position), class:"btn btn-show mb-5" %>
 </div>
