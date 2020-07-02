@@ -1,6 +1,6 @@
 
 <div class="progress my-shadow">
-  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow=<%= (@current_step * 14.2857142857).to_s %> aria-valuemin="0" aria-valuemax="100" style="width: <%= (@current_step * 14.2857142857).to_s %>%">
+  <div class="progress-bar  progress-bar-animated" role="progressbar" aria-valuenow=<%= (@current_step * 14.2857142857).to_s %> aria-valuemin="0" aria-valuemax="100" style="width: <%= (@current_step * 14.2857142857).to_s %>%">
   </div>
 </div>
 
@@ -10,9 +10,12 @@
     <div class="timelineSwiper">
         <div class="swiper-container">
             <div class="swiper-wrapper">
+            
                 <% for step in 0..6 %>
+                
                   <div class="swiper-slide test" style="background-image: url(<%= @steps[step].background %>" data-year="Step <%= step + 1 %>">
                   <div class="row pt-4 container-slider">
+                  
                         <div class="col-3 ml-3 scale-in-center mr-5 mt-4">
                           <div class="card-product">
                             <%= image_tag(@articles[step].image, class: "vignette") %>
@@ -35,8 +38,7 @@
                           <div class="coach-card text-center">
                             <%= image_tag(@coachs[step].photo_url, class: "small_vignette") %>
                             <h2 class="text-dark"><%= @coachs[step].email %></h2>
-                            <p class="text-dark card-content pr-3 pb-2">Notre coach <%= @coachs[step].email %> vous accompagnera dans votre projet de reconversion professionnelle.
-professionnel</p>
+                            <p class="text-dark card-content pr-3 pb-2">Notre coach <%= @coachs[step].email %> vous accompagnera dans votre projet de reconversion professionnelle. professionnel</p>
                             <%= link_to "Prendre rendez-vous", coach_path(@coachs[step].id), class: "my-button " %>
                           </div>
                         </div>
@@ -46,9 +48,10 @@ professionnel</p>
                           <h4 class="timeline-title"><%= @steps[step].title %></h4>
                           <% if @current_step - 1 == step %>
                             <%= link_to "Valider ce step",  steps_up_path, class: "btn my-validate scale-in-center"%>
+                            <div class="displayprogress btn ml-2">Ma progression</div>
                           <% end %>
                       </div>
-
+                      
 
                   </div>
 
