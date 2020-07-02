@@ -1,10 +1,15 @@
-<div class="bg-gradient">
+<!-- <div class="bg-gradient">
+
+</div> -->
+
+<div class="card-category-question" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/ded9yhg1e/image/upload/v1593693395/background-bilan_vbgvap.jpg)">
   <div class="form swing-in-top-fwd">
+
     <p class=""><%= @question.title %></p>
     <div class="d-inline-flex">
       <%= button_to 'OUI', {controller: "answers", action: "create", question: {choices: @question.choices[0]}} , method: :post, class: "btn btn-show m-5"  %>
       <%= button_to 'NON', {controller: "answers", action: "create", question: {choices: @question.choices[1]}} , method: :post, class: "btn btn-show m-5"  %>
     </div>
- </div>
+  </div>
 </div>
 
