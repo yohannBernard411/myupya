@@ -1,20 +1,27 @@
-<div class="container p-4">
-  <h1 class="text-center p-5">Votre coach <%= @coach.email%></h1>
-  <div class="row">
-    <div class="col-6">
-      <%= image_tag @coach.photo_url, class:"bigvignette" %>
-    </div>
-    <div class="col-6 text-center">
-      <p>Choisissez votre date:</p>
-      <input type="date" id="my_date" class="datepicker m-3" name="name" required
-            minlength="4" maxlength="8" size="10">
-      <p>Prix: <%= humanized_money_with_symbol(@coach.price) %></p>
-      <%= form_tag orders_path do %>
-        <%= hidden_field_tag 'coach_id', @coach.id %>
-        <%= hidden_field_tag 'date', @coach.id,id: "savedate" %>
-        <%= submit_tag 'Valider', class: 'btn btn-show mb-5', id: "valid" %>
-      <% end %>
-      <%= link_to "Retour", steps_path(anchor: Step.find(current_user.step_id).position), class:"btn btn-show mb-5" %>
+<div class="card-category-question" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url(<%= @coach.photo_url %>)">
+  <div class="container p-4">
+    <h1 class="text-center p-5">Votre coach <%= @coach.email%></h1>
+    <div class="row">
+      <div class="col-8 text-center">
+        <p>Choisissez votre date:</p>
+        <input type="date" id="my_date" class="datepicker m-3" name="name" required
+              minlength="4" maxlength="8" size="10">
+
+        <%= form_tag orders_path do %>
+          <%= hidden_field_tag 'coach_id', @coach.id %>
+          <%= hidden_field_tag 'date', @coach.id,id: "savedate" %>
+          </div>
+          <div class="col-4">
+            <p class="pb-4">Prix: <%= humanized_money_with_symbol(@coach.price) %></p>
+            <div class="d-flex">
+            <%= submit_tag 'Valider', class: 'btn my-validate mb-5 mr-3', id: "valid" %>
+        <% end %>
+        <%= link_to "Retour", steps_path(anchor: Step.find(current_user.step_id).position), class:"btn btn-show mb-5" %>
+          </div>
+          </div>
+
+
+
     </div>
   </div>
 </div>
