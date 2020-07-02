@@ -13,7 +13,7 @@
                 <% for step in 0..6 %>
                   <div class="swiper-slide test" style="background-image: url(<%= @steps[step].background %>" data-year="Step <%= step + 1 %>">
                   <div class="row pt-4 container-slider">
-                        <div class="col-3 ml-3 mr-5 mt-4">
+                        <div class="col-3 ml-3 scale-in-center mr-5 mt-4">
                           <div class="card-product">
                             <%= image_tag(@articles[step].image, class: "vignette") %>
                             <div class=" mt-2 text-center">
@@ -23,7 +23,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-3 mt-4 mr-5">
+                        <div class="col-3 mt-4 scale-in-center mr-5">
                           <div class="video-card text-center">
                             <%= image_tag @videos[step].picture, class: "small_vignette" %>
                             <h2 class="text-dark"><%= @steps[step].title %></h2>
@@ -31,7 +31,7 @@
                             <%= link_to "Voir", video_path(@videos[step].id), class: "my-button" %>
                           </div>
                         </div>
-                        <div class="col-3 mt-4">
+                        <div class="col-3 scale-in-center mt-4">
                           <div class="coach-card text-center">
                             <%= image_tag(@coachs[step].photo_url, class: "small_vignette") %>
                             <h2 class="text-dark"><%= @coachs[step].email %></h2>
@@ -45,7 +45,7 @@ professionnel</p>
                           <span class="timeline-year">Step <%= step + 1 %></span>
                           <h4 class="timeline-title"><%= @steps[step].title %></h4>
                           <% if @current_step - 1 == step %>
-                            <%= link_to "Valider ce step",  steps_up_path, class: "btn my-validate "%>
+                            <%= link_to "Valider ce step",  steps_up_path, class: "btn my-validate scale-in-center"%>
                           <% end %>
                       </div>
 
