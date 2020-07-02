@@ -38,6 +38,7 @@ import { initTimeLine } from "../components/_swiper";
 // import { targetAnchor } from "../components/_swiper";
 import AOS from "aos";
 import { opacity } from "../components/_myeffect";
+import { scrolltop } from "../components/_progress";
 
 // import { initSelect2 } from '../components/init_select2';
 
@@ -46,7 +47,7 @@ document.addEventListener("turbolinks:load", () => {
   date();
   AOS.init();
   initTimeLine();
-
+  scrolltop();
   // activeTarget();
   // timelineSwiper();
   // targetAnchor();
