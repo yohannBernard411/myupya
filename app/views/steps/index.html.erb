@@ -20,6 +20,7 @@
                         <div class="col-3 ml-3 scale-in-center mr-5 mt-4">
                           <div class="card-product">
                             <%= image_tag(@articles[step].image, class: "vignette") %>
+                            <p class="tags">Article</p>
                             <div class=" mt-2 text-center">
                               <h2 class="text-dark"><%= @articles[step].title[0..100] + "..." %></h2>
                               <p class="text-dark card-content pr-3 pb-2"><%= @articles[step].content[0..120] + "..." %></p>
@@ -30,6 +31,7 @@
                         <div class="col-3 mt-4 scale-in-center mr-5">
                           <div class="video-card text-center">
                             <%= image_tag @videos[step].picture, class: "small_vignette" %>
+                            <p class="tags">Vidéo</p>
                             <h2 class="text-dark"><%= @steps[step].title %></h2>
                             <p class="text-dark card-content pr-3 pb-2">Voici une vidéo explicative afin de vous permettre d’acquérir de nouvelles compétences qui serviront votre projet professionnel.</p>
                             <%= link_to "Voir", video_path(@videos[step].id), class: "my-button" %>
@@ -38,6 +40,7 @@
                         <div class="col-3 scale-in-center mt-4">
                           <div class="coach-card text-center">
                             <%= image_tag(@coachs[step].photo_url, class: "small_vignette") %>
+                            <p class="tags">Coach</p>
                             <h2 class="text-dark"><%= @coachs[step].email %></h2>
                             <p class="text-dark card-content pr-3 pb-2">Notre coach <%= @coachs[step].email %> vous accompagnera dans votre projet de reconversion professionnelle. professionnel</p>
                             <%= link_to "Prendre rendez-vous", coach_path(@coachs[step].id), class: "my-button " %>
