@@ -37,6 +37,14 @@ urls_pole = ["https://www.pole-emploi.fr/candidat/votre-projet-professionnel/eva
         "https://www.pole-emploi.fr/candidat/votre-projet-professionnel/evaluer-vos-competences/le-bilan-de-competences.html",
         "https://www.pole-emploi.fr/candidat/votre-projet-professionnel/definir-votre-projet-professionn/realiser-une-immersion-professio.html"
       ]
+urls_photo = ["https://res.cloudinary.com/ded9yhg1e/image/upload/v1593679234/bgarticle1.jpg",
+              "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593679233/bgarticle2.jpg",
+              "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593679233/bgarticle3.jpg",
+              "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593679234/bgarticle4.jpg",
+              "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593679233/bgarticle5.jpg",
+              "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593679233/bgarticle6.jpg",
+              "https://res.cloudinary.com/ded9yhg1e/image/upload/v1593679233/bgarticle7.jpg"
+             ]
 
 base = "https://www.pole-emploi.fr"
 urls_pole.each_with_index do |url, index|
@@ -54,16 +62,17 @@ urls_pole.each_with_index do |url, index|
   paragraphes.shift
   puts paragraphes
   article.content = paragraphes.join(" ")
-  if element.search('img').attribute('src')
-    image = element.search('img').attribute('src').text.strip
-    if image[0] == "/"
-      url_image = base + image
-    else
-      url_image = image
-    end
-    puts url_image
-    article.image = url_image
-  end
+  article.image = urls_photo[index]
+  # if element.search('img').attribute('src')
+  #   image = element.search('img').attribute('src').text.strip
+  #   if image[0] == "/"
+  #     url_image = base + image
+  #   else
+  #     url_image = image
+  #   end
+  #   puts url_image
+  #   article.image = url_image
+  # end
   puts rank
   if rank > Step.last.id
     article.step_id = Step.first.id
