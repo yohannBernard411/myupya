@@ -52,7 +52,7 @@
                           <h4 class="timeline-title"><%= @steps[step].title %></h4>
                           <% if @current_step - 1 == step %>
                             <%= link_to "Valider ce step",  steps_up_path, class: "btn my-validate scale-in-center"%>
-                            <div class="displayprogress btn scale-in-center ml-2">Ma progression</div>
+                            <div class="displayprogress btn btn-show scale-in-center ml-2">Ma progression</div>
                           <% end %>
                       </div>
 
