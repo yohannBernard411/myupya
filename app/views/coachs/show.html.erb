@@ -12,7 +12,7 @@
           <%= hidden_field_tag 'date', @coach.id,id: "savedate" %>
           </div>
           <div class="col-4">
-            <p class="pb-4">Prix: <%= humanized_money_with_symbol(@coach.price) %></p>
+            <p class="pb-4">Prix journalier: <%= humanized_money_with_symbol(@coach.price) %></p>
             <div class="d-flex">
             <%= submit_tag 'Valider', class: 'btn my-validate mb-5 mr-3', id: "valid" %>
         <% end %>
