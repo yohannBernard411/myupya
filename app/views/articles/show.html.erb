@@ -1,16 +1,19 @@
-<div class="container">
-  <div class="container text-center">
-    <h1 class="p-5"><%= @article.title %></h1>
+  <div class="container-fluid text-center">
+
   </div>
-  <div class="container-fluid banner">
-    <%= image_tag @article.image %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @article.image %>)">
+    <h1 class="text-center p-5"><%= @article.title %></h1>
   </div>
-  <div class="container">
+  <div class="container text-article">
     <% paragraphe = @article.content.split(".") %>
     <% paragraphe.map! { |ligne| ligne + "."} %>
     <% paragraphe.each_slice(3) do |phrase| %>
       <p class="text-justify"><%= phrase.join(" ") %></p><br>
     <% end %>
+    <%= link_to "Retour", steps_path(anchor: "my_target"), class:"btn btn-show" %>
   </div>
-  <%= link_to "Retour", steps_path(anchor: "my_target"), class:"btn btn-show" %>
-</div>
+
+
+
+
+
