@@ -27,7 +27,7 @@ require("channels");
 // External imports
 import "bootstrap";
 // import "bootstrap-datepicker";
-import { test } from "../steps/index";
+// import { test } from "../steps/index";
 
 // Internal imports, e.g:
 import { disabled } from "../components/_disabled_button";
@@ -38,7 +38,7 @@ import { timelineSwiper } from "../components/_swiper";
 // import { activeTarget } from "../components/_swiper";
 // import { targetAnchor } from "../components/_swiper";
 import AOS from "aos";
-import { opacity } from "../components/_myeffect";
+// import { opacity } from "../components/_myeffect";
 import { scrolltop } from "../components/_progress";
 
 // import { initSelect2 } from '../components/init_select2';

@@ -1,5 +1,5 @@
 function timelineSwiper() {
-  new Swiper(".timelineSwiper .swiper-container", {
+  const mySwiper = new Swiper(".timelineSwiper .swiper-container", {
     initialSlide: document.location.toString().split("#")[1],
     direction: "vertical",
     loop: false,
