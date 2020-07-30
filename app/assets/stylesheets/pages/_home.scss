@@ -11,13 +11,16 @@ body {
 }
 
 .scroll .fas {
-  position: relative;
-  bottom: 20px;
   font-size: 24px;
   color: #fc9962;
   animation-name: arrow;
   animation-duration: 1s;
   animation-iteration-count: infinite;
+}
+
+.scroll {
+  position: relative;
+  bottom: 50px;
 }
 
 @keyframes arrow {
@@ -37,4 +40,8 @@ body {
 
 .cardtitle {
   font-size: 24px;
+}
+
+.padding-top-home {
+  padding-top: 90.89px;
 }
