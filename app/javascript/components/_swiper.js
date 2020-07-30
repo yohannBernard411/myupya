@@ -1,6 +1,6 @@
 function timelineSwiper() {
-  const mySwiper = new Swiper(".timelineSwiper .swiper-container", {
-    initialSlide: document.location.toString().split("#")[1],
+  const mySwiper = new Swiper(".swiper-container", {    //.timelineSwiper 
+    initialSlide: (document.getElementById("data-cs").dataset.cs),
     direction: "vertical",
     loop: false,
     speed: 1600,
