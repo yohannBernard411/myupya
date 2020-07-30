@@ -28,7 +28,6 @@ require("channels");
 import "bootstrap";
 // import "bootstrap-datepicker";
 // import { test } from "../steps/index";
-
 // Internal imports, e.g:
 import { disabled } from "../components/_disabled_button";
 import { date } from "../components/_date";

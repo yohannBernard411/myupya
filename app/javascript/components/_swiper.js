@@ -25,7 +25,7 @@ function timelineSwiper() {
     const currentStep = document.getElementById("data-cs");
     const currentStepId = currentStep.dataset.cs;
     const currentStepValue = [parseInt(currentStepId, 10)];
-    timelineSwiper.slideTo(currentStepValue - 1, 1600, true);
+    mySwiper.slideTo(currentStepValue - 1, 1600, true);
   }
 }
 
