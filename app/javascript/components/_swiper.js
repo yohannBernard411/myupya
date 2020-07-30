@@ -1,5 +1,5 @@
 function timelineSwiper() {
-  new Swiper(".timelineSwiper .swiper-container", {
+  const mySwiper = new Swiper(".timelineSwiper .swiper-container", {
     initialSlide: document.location.toString().split("#")[1],
     direction: "vertical",
     loop: false,
@@ -25,7 +25,7 @@ function timelineSwiper() {
     const currentStep = document.getElementById("data-cs");
     const currentStepId = currentStep.dataset.cs;
     const currentStepValue = [parseInt(currentStepId, 10)];
-    timelineSwiper.slideTo(currentStepValue - 1, 1600, true);
+    mySwiper.slideTo(currentStepValue - 1, 1600, true);
   }
 }
 
